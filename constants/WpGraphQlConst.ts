@@ -1,14 +1,30 @@
 export class WpGraphQlPostConst {
   static list = `query PostListQuery {
-        posts {
-          edges {
-            node {
-              title
-              id
-              date
-              content
+      posts {
+        edges {
+          node {
+            categories {
+              edges {
+                node {
+                    name
+                }
+              }
+            }
+            date
+            featuredImage {
+              node {
+                sourceUrl
+                altText
+              }
+            }
+            id
+            slug
+            title
+            subtitle {
+                subtitle
             }
           }
         }
+      }
     }`;
 }

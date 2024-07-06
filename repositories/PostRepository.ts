@@ -1,4 +1,6 @@
+// repository
 import Repository from "./Repository";
+// constant
 import { WpGraphQlPostConst } from "../constants/WpGraphQlConst";
 
 class PostRepository {
