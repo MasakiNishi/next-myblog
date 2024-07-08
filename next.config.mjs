@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
+  images: {
+    remotePatterns: process.env.ALLOWED_IMAGE_HOST
+      ? process.env.ALLOWED_IMAGE_HOST.split(",").map((domain) => ({
+          protocol: "https",
+          hostname: domain,
+        }))
+      : [],
   },
 };
 

@@ -1,34 +1,26 @@
-// service
-import PostService from "../services/PostService";
+import type { NextPage } from "next";
 // type
 import PostType from "../types/PostType";
+// service
+import PostService from "../services/PostService";
 // component
-import Image from "next/image";
+import PostList from "../components/molecules/PostList";
 
 const Home = async () => {
-  const staticPostList: PostType[] = await PostService.getList();
+  const postList: PostType[] = await PostService.getList();
 
   return (
-    <div className="flex">
-      {staticPostList.map((post) => (
-        <div key={post.id} className="w-1/3 p-4">
-          <article className="shadow-sm shadow-gray-200 {post.category}">
-            <div>
-              <img
-                className="w-full h-56 object-cover"
-                src={post.featuredImage.url}
-                alt={post.featuredImage.alt}
-              />
-            </div>
-            <div className="py-4 px-5">
-              <span>{post.category.name}</span>
-              <h1 className="font-bold">{post.title}</h1>
-              <p>{post.subtitle}</p>
-              <span>{post.date}</span>
-            </div>
-          </article>
-        </div>
-      ))}
+    <div className="flex flex-wrap w-main mx-auto">
+      {postList!.map((post) => {
+        return (
+          <div
+            key={post.id}
+            className="w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0"
+          >
+            <PostList post={post} />
+          </div>
+        );
+      })}
     </div>
   );
 };

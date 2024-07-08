@@ -4,7 +4,7 @@ import CategoryType from "./CategoryType";
 interface PostType {
   id: string;
   title: string;
-  subtitle: string;
+  subTitle: string;
   slug: string;
   date: string;
   featuredImage: FeaturedImageType;
