@@ -21,6 +21,7 @@ const Home = async () => {
               />
             </div>
             <div className="py-4 px-5">
+              <span>{post.category.name}</span>
               <h1 className="font-bold">{post.title}</h1>
               <p>{post.subtitle}</p>
               <span>{post.date}</span>

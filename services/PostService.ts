@@ -18,7 +18,10 @@ class PostService {
             url: data.node.featuredImage.node.sourceUrl,
             alt: data.node.featuredImage.node.altText,
           },
-          category: data.node.categories.edges[0].node.name,
+          category: {
+            slug: data.node.categories.edges[0].node.slug,
+            name: data.node.categories.edges[0].node.name,
+          },
         };
         return post;
       });
