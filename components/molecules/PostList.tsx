@@ -6,26 +6,33 @@ import PostListCategory from "../atoms/label/PostListCategory";
 import PostListTitle from "../atoms/text/PostListTitle";
 import PostListSubTitle from "../atoms/text/PostListSubTitle";
 import PostListDate from "../atoms/text/PostListDate";
+import Link from "next/link";
 
 const PostList = ({ post }: { post: PostType }) => {
   return (
     <article className="shadow-sm shadow-gray-200">
       <div>
-        <PostListImage
-          src={post.featuredImage.url}
-          alt=""
-          className="w-full h-56"
-        />
+        <Link href={`/blog/${post.slug}`}>
+          <PostListImage
+            src={post.featuredImage.url}
+            alt=""
+            className="w-full h-56"
+          />
+        </Link>
       </div>
       <div className="py-4 px-5">
         <div className="flex mb-2">
           <div className="mr-2">
-            <PostListCategory>{post.category.name}</PostListCategory>
+            <Link href={`/category/${post.category.slug}`}>
+              <PostListCategory>{post.category.name}</PostListCategory>
+            </Link>
           </div>
           <PostListDate>{post.date}</PostListDate>
         </div>
         <div className="mb-2">
-          <PostListTitle>{post.title}</PostListTitle>
+          <Link href={`/blog/${post.slug}`}>
+            <PostListTitle>{post.title}</PostListTitle>
+          </Link>
         </div>
         <div className="mb-2">
           <PostListSubTitle>{post.subTitle}</PostListSubTitle>
