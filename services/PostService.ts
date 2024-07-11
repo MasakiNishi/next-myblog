@@ -11,7 +11,7 @@ class PostService {
         const post: PostType = {
           id: data.node.id,
           title: data.node.title,
-          subtitle: data.node.subtitle.subtitle,
+          subTitle: data.node.subtitle.subtitle,
           slug: data.node.slug,
           date: data.node.date,
           featuredImage: {
