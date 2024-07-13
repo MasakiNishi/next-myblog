@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -11,6 +11,6 @@
     @apply box-border;
   }
   body {
-    @apply font-body;
+    @apply font-body !important;
   }
 }

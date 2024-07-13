@@ -9,7 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Noto Sans JP", "sans-serif"],
+        body: ["Open Sans", "sans-serif"],
+      },
+      colors: {
+        customGray: "#dedede",
       },
     },
   },
