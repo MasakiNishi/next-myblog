@@ -1,11 +1,11 @@
 // type
-import PostType from "../../types/PostType";
+import PostType from "../../../types/PostType";
 // component
-import PostListImage from "../atoms/image/PostListImage";
-import PostListCategory from "../atoms/label/PostListCategory";
-import PostListTitle from "../atoms/text/PostListTitle";
-import PostListSubTitle from "../atoms/text/PostListSubTitle";
-import PostListDate from "../atoms/text/PostListDate";
+import PostListImage from "../../atoms/image/PostListImage";
+import PostListCategory from "../../atoms/label/PostListCategory";
+import PostListTitle from "../../atoms/text/PostListTitle";
+import PostListSubTitle from "../../atoms/text/PostListSubTitle";
+import PostListDate from "../../atoms/text/PostListDate";
 import Link from "next/link";
 
 const PostList = ({ post }: { post: PostType }) => {

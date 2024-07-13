@@ -4,7 +4,7 @@ import PostType from "../types/PostType";
 // service
 import PostService from "../services/PostService";
 // component
-import PostList from "../components/molecules/PostList";
+import PostList from "../components/molecules/post/PostList";
 
 const Home = async () => {
   const postList: PostType[] = await PostService.getList();
