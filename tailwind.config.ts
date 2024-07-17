@@ -13,6 +13,7 @@ const config: Config = {
       },
       colors: {
         customGray: "#dedede",
+        linkColor: "#709425",
       },
     },
   },

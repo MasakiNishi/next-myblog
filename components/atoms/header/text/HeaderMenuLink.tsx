@@ -9,7 +9,7 @@ const HeaderMenuLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href} className="text-base font-light hover:text-gray-800">
+    <Link href={href} className="text-base font-light text-gray-800">
       {children}
     </Link>
   );
