@@ -10,35 +10,29 @@ import Link from "next/link";
 
 const PostList = ({ post }: { post: PostType }) => {
   return (
-    <article className="shadow-sm shadow-gray-200">
-      <div>
-        <Link href={`/blog/${post.slug}`}>
+    <Link href={`/blog/${post.slug}`}>
+      <article className="mb-4 group">
+        <div className="flex items-center">
           <PostListImage
             src={post.featuredImage.url}
             alt=""
-            className="w-full h-56"
+            className="w-[90px] h-[90px] group-hover:rounded-[50%_90%] transition-all duration-500 ease-in-out"
           />
-        </Link>
-      </div>
-      <div className="py-4 px-5">
-        <div className="flex mb-2">
-          <div className="mr-2">
-            <Link href={`/category/${post.category.slug}`}>
-              <PostListCategory>{post.category.name}</PostListCategory>
-            </Link>
-          </div>
-          <PostListDate>{post.date}</PostListDate>
-        </div>
-        <div className="mb-2">
-          <Link href={`/blog/${post.slug}`}>
+          <div className="ml-8">
+            <div className="flex items-baseline mb-2">
+              <PostListCategory href={`/category/${post.category.slug}`}>
+                {post.category.name}
+              </PostListCategory>
+              <PostListDate>{post.date.split("T")[0]}</PostListDate>
+            </div>
             <PostListTitle>{post.title}</PostListTitle>
-          </Link>
+            {post.subTitle && (
+              <PostListSubTitle>{post.subTitle}</PostListSubTitle>
+            )}
+          </div>
         </div>
-        <div className="mb-2">
-          <PostListSubTitle>{post.subTitle}</PostListSubTitle>
-        </div>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 };
 

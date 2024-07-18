@@ -15,10 +15,7 @@ const Home = async () => {
       <div className="flex flex-wrap w-main mx-auto">
         {postList!.map((post) => {
           return (
-            <div
-              key={post.id}
-              className="w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0"
-            >
+            <div key={post.id} className="pr-4 pb-4">
               <PostList post={post} />
             </div>
           );

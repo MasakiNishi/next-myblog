@@ -1,10 +1,21 @@
+// component
 import { ReactNode } from "react";
+import Link from "next/link";
 
-const PostListCategory = ({ children }: { children: ReactNode }) => {
+const PostListCategory = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) => {
   return (
-    <span className="inline-block text-white bg-black px-2 py-[2px] text-sm">
+    <Link
+      href={href}
+      className="font-light text-sm text-gray-800 mr-2 hover:text-linkColor"
+    >
       {children}
-    </span>
+    </Link>
   );
 };
 

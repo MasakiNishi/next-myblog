@@ -11,7 +11,9 @@ const PostListImage = ({
   className?: string;
 }) => {
   return (
-    <div className={`relative inline-block ${className}`}>
+    <div
+      className={`relative inline-block overflow-hidden border border-customGray rounded-[75%_65%] m-0 ${className}`}
+    >
       <Image
         src={src}
         alt={alt}
