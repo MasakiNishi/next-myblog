@@ -24,9 +24,7 @@ const PostList = ({ post }: { post: PostType }) => {
             <PostListCategory href={`/category/${post.category.slug}`}>
               {post.category.name}
             </PostListCategory>
-            <Link href={`/blog/${post.slug}`}>
-              <PostListDate>{post.date.split("T")[0]}</PostListDate>
-            </Link>
+            <PostListDate>{post.date.split("T")[0]}</PostListDate>
           </div>
           <Link href={`/blog/${post.slug}`}>
             <PostListTitle>{post.title}</PostListTitle>
