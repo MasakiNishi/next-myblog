@@ -10,29 +10,33 @@ import Link from "next/link";
 
 const PostList = ({ post }: { post: PostType }) => {
   return (
-    <Link href={`/blog/${post.slug}`}>
-      <article className="mb-4 group">
-        <div className="flex items-center">
+    <article className="mb-9 group">
+      <div className="flex items-center">
+        <Link href={`/blog/${post.slug}`}>
           <PostListImage
             src={post.featuredImage.url}
             alt=""
             className="w-[90px] h-[90px] group-hover:rounded-[50%_90%] transition-all duration-500 ease-in-out"
           />
-          <div className="ml-8">
-            <div className="flex items-baseline mb-2">
-              <PostListCategory href={`/category/${post.category.slug}`}>
-                {post.category.name}
-              </PostListCategory>
+        </Link>
+        <div className="ml-8">
+          <div className="flex items-baseline mb-2">
+            <PostListCategory href={`/category/${post.category.slug}`}>
+              {post.category.name}
+            </PostListCategory>
+            <Link href={`/blog/${post.slug}`}>
               <PostListDate>{post.date.split("T")[0]}</PostListDate>
-            </div>
+            </Link>
+          </div>
+          <Link href={`/blog/${post.slug}`}>
             <PostListTitle>{post.title}</PostListTitle>
             {post.subTitle && (
               <PostListSubTitle>{post.subTitle}</PostListSubTitle>
             )}
-          </div>
+          </Link>
         </div>
-      </article>
-    </Link>
+      </div>
+    </article>
   );
 };
 
