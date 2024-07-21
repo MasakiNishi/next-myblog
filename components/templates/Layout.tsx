@@ -2,13 +2,17 @@
 import { ReactNode } from "react";
 import Header from "../organisms/Header";
 import Footer from "../organisms/Footer";
+import ActionBar from "../organisms/ActionsBar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen scrollbar-custom">
       <Header />
-      <main className="flex-grow ml-[320px] p-10">{children}</main>
+      <main id="top" className="flex-grow ml-[320px] mr-[60px] p-10">
+        {children}
+      </main>
       <Footer />
+      <ActionBar categories={["careers", "life"]} />
     </div>
   );
 };
