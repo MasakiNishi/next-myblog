@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 import Header from "../organisms/Header";
 import Footer from "../organisms/Footer";
-import ActionBar from "../organisms/ActionsBar";
+import ActionsBar from "../organisms/ActionsBar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         {children}
       </main>
       <Footer />
-      <ActionBar categories={["careers", "life"]} />
+      <ActionsBar categories={["careers", "life"]} />
     </div>
   );
 };
