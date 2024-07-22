@@ -55,13 +55,12 @@ const CategoryFilter = ({ categories }: CategoryFilterProps) => {
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList role="menu">
-                  <Link
+                  <MenuItem
                     key="category"
-                    href="/blog"
-                    className="text-gray-800 hover:text-gray-800"
+                    className="text-gray-800 pointer-events-none"
                   >
-                    <MenuItem onClick={handleClose}>Category</MenuItem>
-                  </Link>
+                    Category
+                  </MenuItem>
                   {categories.map((category) => (
                     <Link
                       key={category}
