@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         {children}
       </main>
       <Footer />
-      <ActionsBar categories={["careers", "life"]} />
+      <ActionsBar categories={["Careers", "Life"]} />
     </div>
   );
 };

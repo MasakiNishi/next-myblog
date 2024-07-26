@@ -1,12 +1,12 @@
 // type
-import PostListType from "../types/PostListType";
+import PostListType from "../../types/PostListType";
 // service
-import PostService from "../services/PostService";
+import PostService from "../../services/PostService";
 // component
-import PostList from "../components/molecules/postList/PostList";
-import Layout from "../components/templates/Layout";
+import PostList from "../../components/molecules/postList/PostList";
+import Layout from "../../components/templates/Layout";
 
-const Home = async () => {
+const Blog = async () => {
   const postList: PostListType[] = await PostService.getList();
 
   return (
@@ -24,4 +24,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default Blog;

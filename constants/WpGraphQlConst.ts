@@ -1,5 +1,6 @@
 export class WpGraphQlPostConst {
-  static list = `query PostListQuery {
+  // 記事一覧
+  static postList = `query PostListQuery {
       posts {
         edges {
           node {
@@ -25,6 +26,34 @@ export class WpGraphQlPostConst {
                 subtitle
             }
           }
+        }
+      }
+    }`;
+
+  // 個別記事
+  static onePost = `query PostQuery($id: ID!) {
+      post(id: $id, idType: SLUG) {
+        categories {
+          edges {
+            node {
+              name
+              slug
+            }
+          }
+        }
+        date
+        content
+        featuredImage {
+            node {
+                sourceUrl
+                altText
+            }
+        }
+        id
+        slug
+        title
+        subtitle {
+            subtitle
         }
       }
     }`;

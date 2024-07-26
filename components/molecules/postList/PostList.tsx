@@ -1,14 +1,14 @@
 // type
-import PostType from "../../../types/PostType";
+import PostListType from "../../../types/PostListType";
 // component
-import PostListImage from "../../atoms/post/image/PostListImage";
-import PostListCategory from "../../atoms/post/label/PostListCategory";
-import PostListTitle from "../../atoms/post/text/PostListTitle";
-import PostListSubTitle from "../../atoms/post/text/PostListSubTitle";
-import PostListDate from "../../atoms/post/text/PostListDate";
+import PostListImage from "../../atoms/postList/image/PostListImage";
+import PostListCategory from "../../atoms/postList/label/PostListCategory";
+import PostListTitle from "../../atoms/postList/text/PostListTitle";
+import PostListSubTitle from "../../atoms/postList/text/PostListSubTitle";
+import PostListDate from "../../atoms/postList/text/PostListDate";
 import Link from "next/link";
 
-const PostList = ({ post }: { post: PostType }) => {
+const PostList = ({ post }: { post: PostListType }) => {
   return (
     <article className="mb-9 group">
       <div className="flex items-center">

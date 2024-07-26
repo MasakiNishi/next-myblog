@@ -4,8 +4,16 @@ import Repository from "./Repository";
 import { WpGraphQlPostConst } from "../constants/WpGraphQlConst";
 
 class PostRepository {
+  // 記事一覧
   static getList() {
-    return Repository(WpGraphQlPostConst.list).getWp();
+    return Repository(WpGraphQlPostConst.postList).getWp();
+  }
+
+  // slugから記事単体を取得
+  static getOne({ id }: { id: string }) {
+    return Repository(WpGraphQlPostConst.onePost, {
+      variables: { id },
+    }).getWp();
   }
 }
 

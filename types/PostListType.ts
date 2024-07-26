@@ -1,15 +1,14 @@
 import FeaturedImageType from "./FeaturedImageType";
 import CategoryType from "./CategoryType";
 
-interface PostType {
+interface PostListType {
   id: string;
   title: string;
   subTitle: string;
   slug: string;
   date: string;
-  content: string;
   featuredImage: FeaturedImageType;
   category: CategoryType;
 }
 
-export default PostType;
+export default PostListType;
