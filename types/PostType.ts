@@ -7,6 +7,7 @@ interface PostType {
   subTitle: string;
   slug: string;
   date: string;
+  modifiedDate: string;
   content: string;
   featuredImage: FeaturedImageType;
   category: CategoryType;

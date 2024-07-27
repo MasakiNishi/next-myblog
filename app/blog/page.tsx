@@ -11,7 +11,7 @@ const Blog = async () => {
 
   return (
     <Layout>
-      <div className="flex flex-wrap w-main mx-auto">
+      <div className="flex flex-col flex-nowrap w-main mx-auto p-10">
         {postList!.map((post) => {
           return (
             <div key={post.id}>

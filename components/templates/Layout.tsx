@@ -8,7 +8,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex flex-col min-h-screen scrollbar-custom">
       <Header />
-      <main id="top" className="flex-grow ml-[320px] mr-[60px] p-10">
+      <main id="top" className="flex-grow ml-[320px]">
         {children}
       </main>
       <Footer />

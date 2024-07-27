@@ -43,6 +43,7 @@ class PostService {
         subTitle: data.subtitle.subtitle,
         slug: data.slug,
         date: data.date,
+        modifiedDate: data.modified,
         content: data.content,
         featuredImage: {
           url: data.featuredImage.node.sourceUrl,

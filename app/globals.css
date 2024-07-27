@@ -19,6 +19,150 @@
   a:hover {
     @apply text-linkColor;
   }
+
+  #content {
+    @apply text-gray-900 text-base leading-7 !important;
+
+    & a {
+      @apply text-linkColor;
+    }
+
+    & code:not(pre) {
+      text-shadow: none;
+      @apply px-2 py-1 rounded;
+    }
+
+    & .language-text {
+      @apply bg-gray-200 text-gray-800;
+    }
+
+    & .box {
+      @apply p-4 mb-6 border-double border-[3px] border-customGray;
+      @apply md:p-6;
+
+      & p {
+        @apply mb-6;
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+
+      & ul,
+      & ol {
+        @apply my-0;
+      }
+    }
+
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-gray-600 font-bold my-8;
+      letter-spacing: -0.02em;
+    }
+
+    & h2 {
+      @apply text-2xl md:text-3xl lg:text-3xl;
+      letter-spacing: -0.05em;
+    }
+
+    & h3 {
+      @apply text-xl md:text-2xl lg:text-2xl;
+    }
+
+    & h4 {
+      @apply text-lg md:text-xl lg:text-xl;
+    }
+
+    & p {
+      @apply mb-6 font-normal;
+    }
+
+    & ul,
+    & ol {
+      @apply pl-5 md:pl-8 my-6;
+    }
+
+    & ol {
+      @apply list-decimal;
+    }
+
+    & ul {
+      @apply list-disc;
+    }
+
+    & ul ul {
+      @apply pt-2 my-0;
+      list-style-type: circle;
+    }
+
+    & ul ul ul {
+      list-style-type: square;
+    }
+
+    & li {
+      @apply mb-4;
+      & p {
+        @apply mb-0;
+      }
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    & blockquote {
+      @apply my-10 p-6 border-solid border-l-8 border-customGray italic relative;
+
+      & li & p {
+        @apply mb-0;
+      }
+
+      & p {
+        @apply mb-6;
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+
+      &::before,
+      &::after {
+        background: #fff;
+        content: "";
+        height: 5px;
+        left: 50%;
+        margin-left: -47%;
+        position: absolute;
+        top: -5px;
+        width: 94%;
+      }
+
+      &::after {
+        top: auto;
+        bottom: -5px;
+      }
+    }
+
+    & table {
+      @apply w-full h-auto text-center border border-customGray my-6 border-collapse;
+      & thead {
+        @apply bg-gray-50;
+      }
+      & th,
+      & td {
+        @apply border border-customGray;
+      }
+    }
+
+    @apply md:text-lg lg:text-xl;
+
+    & .size-large,
+    & .size-full {
+      @apply w-full h-full;
+    }
+
+    & iframe {
+      @apply w-full;
+    }
+  }
 }
 
 html {

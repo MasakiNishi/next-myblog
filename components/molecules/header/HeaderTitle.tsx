@@ -1,22 +1,18 @@
 // component
 import Link from "next/link";
-import HeaderAvatar from "../../atoms/header/image/HeaderAvatar";
+import Avatar from "../../atoms/common/image/Avatar";
 import HeaderTextTitle from "../../atoms/header/text/HeaderTitleText";
 
 const HeaderTitle = ({
-  avatarSrc,
-  avatarAlt,
   title,
   subtitle,
 }: {
-  avatarSrc: string;
-  avatarAlt: string;
   title: string;
   subtitle: string;
 }) => {
   return (
     <Link href="/" className="flex flex-col items-center space-y-2">
-      <HeaderAvatar src={avatarSrc} alt={avatarAlt} />
+      <Avatar />
       <HeaderTextTitle title={title} subtitle={subtitle} />
     </Link>
   );

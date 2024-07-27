@@ -1,7 +1,7 @@
 // component
 import Image from "next/image";
 
-const PostListImage = ({
+const PostFeatureImage = ({
   src,
   alt,
   className = "",
@@ -11,19 +11,20 @@ const PostListImage = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={`relative inline-block overflow-hidden border border-customGray rounded-[75%_65%] m-0 ${className}`}
+    <a
+      href={src}
+      className={`block relative w-full max-w-[800px] h-96 -mx-14 overflow-hidden ${className}`}
     >
       <Image
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes=""
         priority={true}
         className="object-cover"
       />
-    </div>
+    </a>
   );
 };
 
-export default PostListImage;
+export default PostFeatureImage;

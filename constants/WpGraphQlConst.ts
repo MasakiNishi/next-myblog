@@ -42,6 +42,7 @@ export class WpGraphQlPostConst {
           }
         }
         date
+        modified
         content
         featuredImage {
             node {

@@ -2,7 +2,7 @@
 import PostListType from "../../../types/PostListType";
 // component
 import PostListImage from "../../atoms/postList/image/PostListImage";
-import PostListCategory from "../../atoms/postList/label/PostListCategory";
+import PostListCategory from "../../atoms/postList/text/PostListCategory";
 import PostListTitle from "../../atoms/postList/text/PostListTitle";
 import PostListSubTitle from "../../atoms/postList/text/PostListSubTitle";
 import PostListDate from "../../atoms/postList/text/PostListDate";

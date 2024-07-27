@@ -4,12 +4,13 @@ import PostType from "../../../types/PostType";
 // service
 import PostService from "../../../services/PostService";
 // component
-// import PostFeatureImage from "../../../components/atoms/post/image/PostFeatureImage";
+import PostFeatureImage from "../../../components/atoms/post/image/PostFeatureImage";
 import Layout from "../../../components/templates/Layout";
-// import PostCategory from "../../../components/atoms/post/text/PostCategory";
-// import PostDate from "../../../components/atoms/post/text/PostDate";
-// import PostHeading from "../../../components/atoms/post/text/PostHeading";
-import Link from "next/link";
+import PostCategory from "../../../components/atoms/post/text/PostCategory";
+import PostDate from "../../../components/atoms/post/text/PostDate";
+import PostTitle from "../../../components/atoms/post/text/PostTitle";
+import PostSubTitle from "../../../components/atoms/post/text/PostSubTitle";
+import PostProfile from "../../../components/molecules/post/PostProfile";
 
 interface PostPageProps {
   params: {
@@ -27,33 +28,38 @@ const PostPage = async ({ params }: PostPageProps) => {
 
   return (
     <Layout>
-      <div className="w-main mx-auto">
-        <article>
-          <div className="mb-4">
-            {/* <PostFeatureImage
-              src={post.featuredImage.url}
-              alt=""
-              className="w-full h-96"
-            /> */}
-          </div>
-          <div className="flex mb-4">
-            <div className="mr-3">
-              <Link href={post.category.slug}>
-                {/* <PostCategory>{post.category.name}</PostCategory> */}
-                {post.category.name}
-              </Link>
-            </div>
-            {/* <PostDate>{post.date}</PostDate> */}
-            {post.date}
-          </div>
-          <div className="mb-6">
-            {/* <PostHeading>{post.title}</PostHeading> */}
-            {post.title}
-            {post.subTitle}
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-        </article>
-      </div>
+      <article className="w-main mx-auto max-w-[50em] p-14">
+        <div className="mb-4 text-sm">
+          <PostCategory href={post.category.slug}>
+            {post.category.name}
+          </PostCategory>
+        </div>
+        <div className="mb-5">
+          <PostTitle>{post.title}</PostTitle>
+          <PostSubTitle>{post.subTitle}</PostSubTitle>
+        </div>
+        <div className="flex mb-7 text-sm">
+          <PostDate dateTime={post.date.split("T")[0]}>
+            投稿日: {post.date.split("T")[0]}
+          </PostDate>
+          <PostDate dateTime={post.date.split("T")[0]}>
+            更新日: {post.modifiedDate.split("T")[0]}
+          </PostDate>
+        </div>
+        <div className="mb-7 -mx-14 flex justify-center">
+          <PostFeatureImage
+            src={post.featuredImage.url}
+            alt={post.featuredImage.alt}
+          />
+        </div>
+        <div
+          id="content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        ></div>
+        <div>
+          <PostProfile />
+        </div>
+      </article>
     </Layout>
   );
 };
