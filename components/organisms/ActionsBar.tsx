@@ -1,3 +1,7 @@
+// type
+import CategoryType from "../../types/CategoryType";
+// service
+import PostService from "../../services/PostService";
 // component
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -6,11 +10,10 @@ import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
 import CategoryFilter from "../molecules/actionsBar/CategoryFilter";
 
-interface ActionsBarProps {
-  categories: string[];
-}
+const ActionsBar = async () => {
+  const categoryList: CategoryType[] | null =
+    await PostService.getCategoryList();
 
-const ActionsBar = ({ categories }: ActionsBarProps) => {
   return (
     <div className="w-[60px] py-6 fixed right-0 top-0 bottom-0 flex flex-col items-center justify-between bg-white after:content-[''] after:absolute after:top-[20px] after:left-0 after:bottom-[20px] after:w-[1px] after:bg-customGray">
       <div className="flex flex-col items-center space-y-4">
@@ -19,7 +22,7 @@ const ActionsBar = ({ categories }: ActionsBarProps) => {
             <HomeIcon className="text-gray-800" />
           </Link>
         </IconButton>
-        <CategoryFilter categories={categories} />
+        <CategoryFilter categoryList={categoryList} />
         <IconButton
           className="py-0"
           aria-label="ブログ内検索"

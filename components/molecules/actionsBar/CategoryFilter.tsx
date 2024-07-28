@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
+// type
+import CategoryType from "../../../types/CategoryType";
 // component
 import {
   MenuItem,
@@ -15,10 +17,10 @@ import { Popper } from "@mui/material";
 import Link from "next/link";
 
 interface CategoryFilterProps {
-  categories: string[];
+  categoryList: CategoryType[] | null;
 }
 
-const CategoryFilter = ({ categories }: CategoryFilterProps) => {
+const CategoryFilter = ({ categoryList }: CategoryFilterProps) => {
   const [open, setOpen] = useState(false);
   const anchorEl = useRef<HTMLButtonElement | null>(null);
 
@@ -61,14 +63,14 @@ const CategoryFilter = ({ categories }: CategoryFilterProps) => {
                   >
                     Category
                   </MenuItem>
-                  {categories.map((category) => (
+                  {categoryList?.map((category) => (
                     <Link
-                      key={category}
-                      href={`/category/${category}`}
+                      key={category.slug}
+                      href={`/blog/category/${category.slug}`}
                       className="text-gray-800 hover:text-gray-800"
                     >
                       <MenuItem onClick={handleClose} className="font-light">
-                        {category}
+                        {category.name}
                       </MenuItem>
                     </Link>
                   ))}
