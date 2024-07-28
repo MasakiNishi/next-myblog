@@ -1,17 +1,27 @@
 // repository
 import Repository from "./Repository";
+// type
+import OffsetPaginationType from "../types/OffsetPaginationType";
 // constant
 import { WpGraphQlPostConst } from "../constants/WpGraphQlConst";
 
 class PostRepository {
   // 記事一覧
-  static getList({ categoryId }: { categoryId?: number }) {
+  static getList({
+    offsetPagination,
+    categoryId,
+  }: {
+    offsetPagination: OffsetPaginationType;
+    categoryId?: number;
+  }) {
     if (categoryId) {
       return Repository(WpGraphQlPostConst.postListByCategory, {
-        variables: { categoryId },
+        variables: { offsetPagination, categoryId },
       }).getWp();
     }
-    return Repository(WpGraphQlPostConst.postList).getWp();
+    return Repository(WpGraphQlPostConst.postList, {
+      variables: { offsetPagination },
+    }).getWp();
   }
 
   // slugから記事単体を取得
@@ -31,6 +41,11 @@ class PostRepository {
   // カテゴリー一覧を取得
   static getCategoryList() {
     return Repository(WpGraphQlPostConst.categoryList).getWp();
+  }
+
+  // 記事総数を取得
+  static getPostTotal() {
+    return Repository(WpGraphQlPostConst.postTotal).getWp();
   }
 }
 

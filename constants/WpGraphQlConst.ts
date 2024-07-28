@@ -48,22 +48,32 @@ export class WpGraphQlPostConst {
     }`;
 
   // 記事一覧
-  static postList = `query PostListQuery {
-        posts {
+  static postList = `query PostListQuery($offsetPagination: OffsetPagination!) {
+        posts(where: {offsetPagination: $offsetPagination}) {
             edges {
                 node {
                     ${this._postListItem}
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
                 }
             }
         }
     }`;
 
   // 特定のカテゴリーの記事一覧
-  static postListByCategory = `query PostListByCategoryQuery($categoryId: Int!) {
-        posts(where: {categoryId: $categoryId}) {
+  static postListByCategory = `query PostListByCategoryQuery($offsetPagination: OffsetPagination!, $categoryId: Int!) {
+        posts(where: {offsetPagination: $offsetPagination, categoryId: $categoryId}) {
             edges {
                 node {
                     ${this._postListItem}
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
                 }
             }
         }
@@ -90,6 +100,17 @@ export class WpGraphQlPostConst {
                 node {
                     slug
                     name
+                }
+            }
+        }
+    }`;
+
+  // 記事の総数を取得
+  static postTotal = `query PostTotalQuery {
+        posts {
+            pageInfo {
+                offsetPagination {
+                    total
                 }
             }
         }

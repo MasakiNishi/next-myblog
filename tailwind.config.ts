@@ -14,6 +14,7 @@ const config: Config = {
       colors: {
         customGray: "#dedede",
         linkColor: "#709425",
+        greenBgColor: "#f4faed",
       },
     },
   },

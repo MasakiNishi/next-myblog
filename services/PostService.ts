@@ -1,20 +1,29 @@
-// repository
-import RepositoryFactory from "../repositories/RepositoryFactory";
+// const
+import PostConst from "../constants/PostConst";
 // type
 import PostType from "../types/PostType";
 import PostListType from "../types/PostListType";
 import CategoryType from "../types/CategoryType";
+import OffsetPaginationType from "../types/OffsetPaginationType";
+// repository
+import RepositoryFactory from "../repositories/RepositoryFactory";
 
 class PostService {
   // 記事一覧を取得
   static async getList({
+    page,
     categoryId,
   }: {
+    page: number;
     categoryId?: number;
-  }): Promise<PostListType[]> {
+  }): Promise<[PostListType[], number]> {
     try {
-      const res = await RepositoryFactory.post.getList({ categoryId });
-      return res.data.data.posts.edges.map((data: any) => {
+      const offsetPagination = this._makeOffsetPaginationFromPage(page);
+      const res = await RepositoryFactory.post.getList({
+        offsetPagination,
+        categoryId,
+      });
+      const postList = res.data.data.posts.edges.map((data: any) => {
         const post: PostListType = {
           id: data.node.id,
           title: data.node.title,
@@ -32,8 +41,10 @@ class PostService {
         };
         return post;
       });
+      const total = res.data.data.posts.pageInfo.offsetPagination.total;
+      return [postList, total];
     } catch {
-      return [];
+      return [[], 0];
     }
   }
 
@@ -89,6 +100,38 @@ class PostService {
     } catch {
       return null;
     }
+  }
+
+  // 全記事のリストを取得
+  static async getAllPostList(): Promise<
+    {
+      params: {
+        page: string;
+      };
+    }[]
+  > {
+    const total = await this.getPostTotal();
+    const pageTotal = Math.ceil(total / PostConst.sizePerPage);
+    const pageList = [...Array(pageTotal)].map((_, i) => i + 1);
+    return pageList.map((page: number) => {
+      return { params: { page: page.toString() } };
+    });
+  }
+
+  // 記事総数を取得
+  static async getPostTotal(): Promise<number> {
+    const res = await RepositoryFactory.post.getPostTotal();
+    return res.data.data.posts.pageInfo.offsetPagination.total;
+  }
+
+  // ページネーションの設定
+  private static _makeOffsetPaginationFromPage(
+    page: number
+  ): OffsetPaginationType {
+    return {
+      offset: (page - 1) * PostConst.sizePerPage,
+      size: PostConst.sizePerPage,
+    };
   }
 }
 
