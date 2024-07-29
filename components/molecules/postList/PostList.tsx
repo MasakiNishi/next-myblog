@@ -21,7 +21,7 @@ const PostList = ({ post }: { post: PostListType }) => {
         </Link>
         <div className="ml-8">
           <div className="flex items-baseline mb-2">
-            <PostListCategory href={`/category/${post.category.slug}`}>
+            <PostListCategory href={`/blog/category/${post.category.slug}`}>
               {post.category.name}
             </PostListCategory>
             <PostListDate>{post.date.split("T")[0]}</PostListDate>
