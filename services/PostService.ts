@@ -102,28 +102,6 @@ class PostService {
     }
   }
 
-  // 全記事のリストを取得
-  static async getAllPostList(): Promise<
-    {
-      params: {
-        page: string;
-      };
-    }[]
-  > {
-    const total = await this.getPostTotal();
-    const pageTotal = Math.ceil(total / PostConst.sizePerPage);
-    const pageList = [...Array(pageTotal)].map((_, i) => i + 1);
-    return pageList.map((page: number) => {
-      return { params: { page: page.toString() } };
-    });
-  }
-
-  // 記事総数を取得
-  static async getPostTotal(): Promise<number> {
-    const res = await RepositoryFactory.post.getPostTotal();
-    return res.data.data.posts.pageInfo.offsetPagination.total;
-  }
-
   // ページネーションの設定
   private static _makeOffsetPaginationFromPage(
     page: number

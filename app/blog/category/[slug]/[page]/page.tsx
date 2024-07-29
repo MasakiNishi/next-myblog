@@ -1,21 +1,23 @@
 // const
-import PostConst from "../../../../constants/PostConst";
+import PostConst from "../../../../../constants/PostConst";
 // service
-import PostService from "../../../../services/PostService";
+import PostService from "../../../../../services/PostService";
 // component
-import PostList from "../../../../components/molecules/postList/PostList";
-import Pagination from "../../../../components/molecules/pagination/Pagination";
+import PostList from "../../../../../components/molecules/postList/PostList";
+import Pagination from "../../../../../components/molecules/pagination/Pagination";
 
 interface CategoryPageProps {
   params: {
     slug: string;
+    page: string;
   };
 }
 
 const Blog = async ({ params }: CategoryPageProps) => {
   const slug = params.slug;
   const categoryId = await PostService.getCategoryIdBySlug({ slug });
-  const currentPage = parseInt(params.slug);
+
+  const currentPage = parseInt(params.page);
   const [postList, total] = await PostService.getList({
     page: currentPage,
     categoryId,
@@ -39,7 +41,7 @@ const Blog = async ({ params }: CategoryPageProps) => {
         total={total}
         sizePerPage={PostConst.sizePerPage}
         currentPage={currentPage}
-        path={`/blog/category/${slug}/page`}
+        path={`/blog/category/${slug}`}
       />
     </div>
   );

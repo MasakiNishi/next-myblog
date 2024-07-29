@@ -42,11 +42,6 @@ class PostRepository {
   static getCategoryList() {
     return Repository(WpGraphQlPostConst.categoryList).getWp();
   }
-
-  // 記事総数を取得
-  static getPostTotal() {
-    return Repository(WpGraphQlPostConst.postTotal).getWp();
-  }
 }
 
 export default PostRepository;

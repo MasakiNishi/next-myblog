@@ -14,6 +14,10 @@ const nextConfig = {
         source: "/blog",
         destination: "/blog/page/1",
       },
+      {
+        source: "/blog/category/:category",
+        destination: "/blog/category/:category/1",
+      },
     ];
   },
 };

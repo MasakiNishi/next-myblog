@@ -61,19 +61,31 @@ const Pagination = ({
                   page = c;
                 }
               }
-              return (
-                <Link
-                  key={i}
-                  href={`${path}/${page}`}
-                  className={
-                    currentPage == page
-                      ? "relative z-10 inline-flex items-center bg-greenBgColor px-4 py-2 text-sm font-normal text-gray-600"
-                      : "relative inline-flex items-center px-4 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
-                  }
-                >
-                  {page}
-                </Link>
-              );
+
+              if (page === "...") {
+                return (
+                  <span
+                    key={i}
+                    className="relative inline-flex items-center px-4 py-2 text-sm font-normal text-gray-600"
+                  >
+                    {page}
+                  </span>
+                );
+              } else {
+                return (
+                  <Link
+                    key={i}
+                    href={`${path}/${page}`}
+                    className={
+                      currentPage == page
+                        ? "relative z-10 inline-flex items-center bg-greenBgColor px-4 py-2 text-sm font-normal text-gray-600"
+                        : "relative inline-flex items-center px-4 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
+                    }
+                  >
+                    {page}
+                  </Link>
+                );
+              }
             })}
             <Link
               href={`${path}/${Math.min(totalPage, currentPage + 1)}`}
