@@ -50,10 +50,10 @@ const CategoryFilter = ({ categoryList }: CategoryFilterProps) => {
         placement="bottom-end"
         transition
         disablePortal={true}
-        style={{ zIndex: 10 }}
+        className="z-10"
       >
         {({ TransitionProps }) => (
-          <Grow {...TransitionProps} style={{ transformOrigin: "0 0 0" }}>
+          <Grow {...TransitionProps} className="origin-top-right">
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList role="menu">
