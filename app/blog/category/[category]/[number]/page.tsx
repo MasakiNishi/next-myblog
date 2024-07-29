@@ -8,22 +8,22 @@ import Pagination from "../../../../../components/molecules/pagination/Paginatio
 
 interface CategoryPageProps {
   params: {
-    slug: string;
-    page: string;
+    category: string;
+    number: string;
   };
 }
 
 const Blog = async ({ params }: CategoryPageProps) => {
-  const slug = params.slug;
-  const categoryId = await PostService.getCategoryIdBySlug({ slug });
+  const category = params.category;
+  const categoryId = await PostService.getCategoryIdBySlug({ slug: category });
 
-  const currentPage = parseInt(params.page);
+  const currentPage = parseInt(params.number);
   const [postList, total] = await PostService.getList({
     page: currentPage,
     categoryId,
   });
 
-  const categoryName = slug.charAt(0).toUpperCase() + slug.slice(1);
+  const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
     <div className="flex flex-col flex-nowrap w-main mx-auto p-10">
@@ -41,7 +41,7 @@ const Blog = async ({ params }: CategoryPageProps) => {
         total={total}
         sizePerPage={PostConst.sizePerPage}
         currentPage={currentPage}
-        path={`/blog/category/${slug}`}
+        path={`/blog/category/${category}`}
       />
     </div>
   );

@@ -1,17 +1,14 @@
 import FeaturedImageType from "./FeaturedImageType";
-import CategoryType from "./CategoryType";
 
-interface PostType {
+interface PageType {
   id: string;
   title: string;
-  subTitle: string;
   slug: string;
   date: string;
   modifiedDate: string;
   content: string;
   description: string;
-  featuredImage: FeaturedImageType;
-  category: CategoryType;
+  featuredImage: FeaturedImageType | null;
 }
 
-export default PostType;
+export default PageType;

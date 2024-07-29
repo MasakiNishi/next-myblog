@@ -8,12 +8,12 @@ import Pagination from "../../../../components/molecules/pagination/Pagination";
 
 interface ListPageProps {
   params: {
-    page: string;
+    number: string;
   };
 }
 
 const Blog = async ({ params }: ListPageProps) => {
-  const currentPage = parseInt(params.page);
+  const currentPage = parseInt(params.number);
   const [postList, total] = await PostService.getList({
     page: currentPage,
   });

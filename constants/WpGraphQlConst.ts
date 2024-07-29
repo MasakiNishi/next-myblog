@@ -45,6 +45,9 @@ export class WpGraphQlPostConst {
     title
     subtitle {
         subtitle
+    }
+    description {
+        description
     }`;
 
   // 記事一覧
@@ -113,6 +116,32 @@ export class WpGraphQlPostConst {
                     total
                 }
             }
+        }
+    }`;
+}
+
+export class WpGraphQlPageConst {
+  private static _onePageItem = `
+    date
+    modified
+    content
+    featuredImage {
+        node {
+            sourceUrl
+            altText
+        }
+    }
+    id
+    slug
+    title
+    description {
+        description
+    }`;
+
+  // 固定ページ
+  static onePage = `query PageQuery($id: ID!) {
+        page(id: $id, idType: URI) {
+            ${this._onePageItem}
         }
     }`;
 }

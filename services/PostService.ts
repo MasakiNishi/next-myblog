@@ -61,6 +61,7 @@ class PostService {
         date: data.date,
         modifiedDate: data.modified,
         content: data.content,
+        description: data.description.description,
         featuredImage: {
           url: data.featuredImage.node.sourceUrl,
           alt: data.featuredImage.node.altText,

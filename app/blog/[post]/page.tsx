@@ -13,12 +13,12 @@ import PostProfile from "../../../components/molecules/post/PostProfile";
 
 interface PostPageProps {
   params: {
-    slug: string;
+    post: string;
   };
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
-  const post: PostType | null = await PostService.getOne({ id: params.slug });
+  const post: PostType | null = await PostService.getOne({ id: params.post });
 
   if (!post) {
     notFound();
