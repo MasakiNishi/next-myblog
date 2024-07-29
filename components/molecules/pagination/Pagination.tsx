@@ -31,14 +31,14 @@ const Pagination = ({
           >
             <Link
               href={`${path}/1`}
-              className="relative inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+              className="relative inline-flex items-center px-3 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
             >
               <span className="sr-only">First</span>
               <FirstPageIcon className="w-5 h-5" />
             </Link>
             <Link
               href={`${path}/${Math.max(1, currentPage - 1)}`}
-              className="relative inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+              className="relative inline-flex items-center px-3 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
             >
               <ArrowBackIosNewIcon className="w-3 h-3" />
             </Link>
@@ -67,8 +67,8 @@ const Pagination = ({
                   href={`${path}/${page}`}
                   className={
                     currentPage == page
-                      ? "relative z-10 inline-flex items-center bg-greenBgColor px-4 py-2 text-sm font-medium text-gray-600"
-                      : "relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+                      ? "relative z-10 inline-flex items-center bg-greenBgColor px-4 py-2 text-sm font-normal text-gray-600"
+                      : "relative inline-flex items-center px-4 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
                   }
                 >
                   {page}
@@ -77,13 +77,13 @@ const Pagination = ({
             })}
             <Link
               href={`${path}/${Math.min(totalPage, currentPage + 1)}`}
-              className="relative inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+              className="relative inline-flex items-center px-3 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
             >
               <ArrowForwardIosIcon className="w-3 h-3" />
             </Link>
             <Link
               href={`${path}/${totalPage}`}
-              className="relative inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+              className="relative inline-flex items-center px-3 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
             >
               <span className="sr-only">Last</span>
               <LastPageIcon className="w-5 h-5" />
