@@ -13,6 +13,8 @@ const PostFeatureImage = ({
   return (
     <a
       href={src}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`block relative w-full max-w-[800px] h-96 -mx-14 overflow-hidden ${className}`}
     >
       <Image

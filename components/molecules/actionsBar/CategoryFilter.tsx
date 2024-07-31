@@ -40,9 +40,8 @@ const CategoryFilter = ({ categoryList }: CategoryFilterProps) => {
         onClick={handleClick}
         title="記事カテゴリー"
         ref={anchorEl}
-        className="text-gray-800"
       >
-        <FilterListIcon />
+        <FilterListIcon className="text-gray-800" />
       </IconButton>
       <Popper
         open={open}

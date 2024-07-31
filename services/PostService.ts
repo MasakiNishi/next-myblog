@@ -13,15 +13,18 @@ class PostService {
   static async getList({
     page,
     categoryId,
+    search,
   }: {
     page: number;
     categoryId?: number;
+    search?: string;
   }): Promise<[PostListType[], number]> {
     try {
       const offsetPagination = this._makeOffsetPaginationFromPage(page);
       const res = await RepositoryFactory.post.getList({
-        offsetPagination,
-        categoryId,
+        offsetPagination: offsetPagination,
+        categoryId: categoryId,
+        search: search,
       });
       const postList = res.data.data.posts.edges.map((data: any) => {
         const post: PostListType = {

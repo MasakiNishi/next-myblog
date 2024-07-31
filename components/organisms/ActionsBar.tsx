@@ -4,11 +4,11 @@ import CategoryType from "../../types/CategoryType";
 import PostService from "../../services/PostService";
 // component
 import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
 import CategoryFilter from "../molecules/actionsBar/CategoryFilter";
+import SiteSearch from "../molecules/actionsBar/SiteSearch";
 
 const ActionsBar = async () => {
   const categoryList: CategoryType[] | null =
@@ -23,15 +23,7 @@ const ActionsBar = async () => {
           </Link>
         </IconButton>
         <CategoryFilter categoryList={categoryList} />
-        <IconButton
-          className="py-0"
-          aria-label="ブログ内検索"
-          title="ブログ内検索"
-        >
-          <Link href="/blog/search">
-            <SearchIcon className="text-gray-800" />
-          </Link>
-        </IconButton>
+        <SiteSearch />
       </div>
       <div className="flex flex-col items-center space-y-4">
         <IconButton

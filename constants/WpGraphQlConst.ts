@@ -82,6 +82,22 @@ export class WpGraphQlPostConst {
         }
     }`;
 
+  // 検索結果の記事一覧
+  static searchPostList = `query SearchPostsQuery($offsetPagination: OffsetPagination!, $search: String!) {
+        posts(where: {offsetPagination: $offsetPagination, search: $search}) {
+            edges {
+                node {
+                    ${this._postListItem}
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
+                }
+            }
+        }
+    }`;
+
   // 個別記事
   static onePost = `query PostQuery($id: ID!) {
         post(id: $id, idType: SLUG) {

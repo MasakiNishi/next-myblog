@@ -10,13 +10,19 @@ class PostRepository {
   static getList({
     offsetPagination,
     categoryId,
+    search,
   }: {
     offsetPagination: OffsetPaginationType;
     categoryId?: number;
+    search?: string;
   }) {
     if (categoryId) {
       return Repository(WpGraphQlPostConst.postListByCategory, {
         variables: { offsetPagination, categoryId },
+      }).getWp();
+    } else if (search) {
+      return Repository(WpGraphQlPostConst.searchPostList, {
+        variables: { offsetPagination, search },
       }).getWp();
     }
     return Repository(WpGraphQlPostConst.postList, {
