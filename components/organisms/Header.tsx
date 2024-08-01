@@ -10,21 +10,6 @@ import HeaderMenu from "../molecules/header/HeaderMenu";
 import HeaderSocialIcons from "../molecules/header/HeaderSocialIcons";
 import ProfileText from "../atoms/common/text/ProfileText";
 
-// temp hard-coded data
-const socialLinks = [
-  { href: "https://x.com", iconSrc: "/images/sns/twitter.svg", title: "X" },
-  {
-    href: "https://youtube.com",
-    iconSrc: "/images/sns/youtube.svg",
-    title: "YouTube",
-  },
-  {
-    href: "https://instagram.com",
-    iconSrc: "/images/sns/instagram.svg",
-    title: "Instagram",
-  },
-];
-
 const Header = async () => {
   const profile: ProfileType | null = await ProfileService.getProfile({
     id: ProfileConst.id,
@@ -65,7 +50,7 @@ const Header = async () => {
         <p className="mb-2 font-light text-center tracking-widest">
           Follow Me:
         </p>
-        <HeaderSocialIcons socialLinks={socialLinks} />
+        <HeaderSocialIcons />
       </div>
     </header>
   );
