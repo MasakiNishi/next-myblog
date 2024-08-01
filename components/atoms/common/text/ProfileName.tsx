@@ -1,7 +1,10 @@
-// component
-const name = "Masaki Nishi";
-
-const ProfileText = ({ className = "" }: { className?: string }) => {
+const ProfileText = ({
+  name,
+  className = "",
+}: {
+  name: string;
+  className?: string;
+}) => {
   return <p className={`${className}`}>{name}</p>;
 };
 

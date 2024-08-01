@@ -1,16 +1,42 @@
+// service
+import ProfileService from "../../../services/ProfileService";
+// constant
+import ProfileConst from "../../../constants/ProfileConst";
+// type
+import ProfileType from "../../../types/ProfileType";
 // component
 import Link from "next/link";
 import Avatar from "../../atoms/common/image/Avatar";
 import ProfileName from "../../atoms/common/text/ProfileName";
 import ProfileText from "../../atoms/common/text/ProfileText";
 
-const PostProfile = () => {
+const PostProfile = async () => {
+  const profile: ProfileType | null = await ProfileService.getProfile({
+    id: ProfileConst.id,
+  });
+
+  const profileImage = profile?.image
+    ? profile.image
+    : ProfileConst.profileImage;
+
+  const profileName =
+    profile?.firstName && profile?.lastName
+      ? `${profile.firstName} ${profile.lastName}`
+      : ProfileConst.profileName;
+
+  const profileDescription = profile?.description
+    ? profile.description
+    : ProfileConst.profileDescription;
+
   return (
     <div className="flex flex-row items-center mt-12 py-12 border-t border-b border-t-customGray border-b-customGray">
-      <Avatar className="mx-4 flex-shrink-0" />
+      <Avatar imageSrc={profileImage} className="mx-4 flex-shrink-0" />
       <div>
-        <ProfileName className="font-bold text-gray-600 mb-2" />
-        <ProfileText className="mb-2" />
+        <ProfileName
+          name={profileName}
+          className="font-bold text-gray-600 mb-2"
+        />
+        <ProfileText description={profileDescription} className="mb-2" />
         <span>
           → <Link href="/about">詳細プロフィール</Link>
         </span>

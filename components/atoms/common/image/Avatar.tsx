@@ -1,15 +1,24 @@
 // component
 import Image from "next/image";
 
-const avatarSrc = "/images/sns/avatar.jpg";
-const avatarAlt = "Avatar";
-
-const Avatar = ({ className = "" }: { className?: string }) => {
+const Avatar = ({
+  imageSrc,
+  className = "",
+}: {
+  imageSrc: string;
+  className?: string;
+}) => {
   return (
     <div
-      className={`w-16 h-16 rounded-full overflow-hidden border border-customGray ${className}`}
+      className={`w-16 h-16 rounded-full overflow-hidden border border-customGray relative ${className}`}
     >
-      <Image src={avatarSrc} alt={avatarAlt} width={58} height={58} />
+      <Image
+        src={imageSrc}
+        alt="プロフィール画像"
+        fill
+        className="object-cover"
+        priority={true}
+      />
     </div>
   );
 };

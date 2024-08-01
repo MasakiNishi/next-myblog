@@ -161,3 +161,19 @@ export class WpGraphQlPageConst {
         }
     }`;
 }
+
+export class WpGraphQlProfileConst {
+  // ユーザー
+  static userProfile = `query UserProfileQuery($id: ID!) {
+        user(id: $id) {
+            id
+            avatar {
+                url
+            }
+            firstName
+            lastName
+            name
+            description   
+        }
+    }`;
+}
