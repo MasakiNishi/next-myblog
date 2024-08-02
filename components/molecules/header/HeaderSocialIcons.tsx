@@ -27,16 +27,16 @@ const HeaderSocialIcons = () => {
         title={youtube.title}
         className="p-2 pr-4 text-youtubeColor hover:text-youtubeColor"
       >
-        <YouTubeIcon />
+        <YouTubeIcon className="text-3xl" />
       </a>
       <a
         href={instagram.href}
         target="_blank"
         rel="noopener noreferrer"
         title={instagram.title}
-        className="w-[27px] h-[27px] mt-[6px] ml-[30px] flex items-center justify-center rounded-md bg-gradient-to-r from-instagramGradientStart via-instagramGradientMiddle1 via-instagramGradientMiddle2 via-instagramGradientMiddle3 to-instagramGradientEnd text-white hover:text-white"
+        className="w-[25px] h-[25px] mt-[8px] flex items-center justify-center rounded-md bg-gradient-to-r from-instagramGradientStart via-instagramGradientMiddle1 via-instagramGradientMiddle2 via-instagramGradientMiddle3 to-instagramGradientEnd text-white hover:text-white"
       >
-        <InstagramIcon />
+        <InstagramIcon className="text-[23px]" />
       </a>
     </div>
   );
