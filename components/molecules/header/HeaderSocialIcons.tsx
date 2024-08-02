@@ -25,7 +25,7 @@ const HeaderSocialIcons = () => {
         target="_blank"
         rel="noopener noreferrer"
         title={youtube.title}
-        className="p-2 pr-4 text-youtubeColor hover:text-youtubeColor"
+        className="p-2 !mx-3 text-youtubeColor hover:text-youtubeColor"
       >
         <YouTubeIcon className="text-3xl" />
       </a>
@@ -34,7 +34,7 @@ const HeaderSocialIcons = () => {
         target="_blank"
         rel="noopener noreferrer"
         title={instagram.title}
-        className="w-[25px] h-[25px] mt-[8px] flex items-center justify-center rounded-md bg-gradient-to-r from-instagramGradientStart via-instagramGradientMiddle1 via-instagramGradientMiddle2 via-instagramGradientMiddle3 to-instagramGradientEnd text-white hover:text-white"
+        className="w-[25px] h-[25px] !mx-2 mt-[8px] flex items-center justify-center rounded-md bg-gradient-to-r from-instagramGradientStart via-instagramGradientMiddle1 via-instagramGradientMiddle2 via-instagramGradientMiddle3 to-instagramGradientEnd text-white hover:text-white"
       >
         <InstagramIcon className="text-[23px]" />
       </a>
