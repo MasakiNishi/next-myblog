@@ -1,13 +1,20 @@
+// constant
+import PageConst from "../../../constants/PageConst";
 // component
-import HeaderMenuLink from "../../atoms/header/text/HeaderMenuLink";
+import Link from "next/link";
 
 const HeaderMenu = () => {
   return (
     <nav className="flex flex-col items-center space-y-2">
-      <HeaderMenuLink href="/">top</HeaderMenuLink>
-      <HeaderMenuLink href="/blog">blog</HeaderMenuLink>
-      <HeaderMenuLink href="/about">about</HeaderMenuLink>
-      <HeaderMenuLink href="/contact">contact</HeaderMenuLink>
+      {PageConst.pageList?.map((page) => (
+        <Link
+          key={page}
+          href={page === "top" ? "/" : `/${page}`}
+          className="text-base font-light text-gray-800"
+        >
+          {page}
+        </Link>
+      ))}
     </nav>
   );
 };

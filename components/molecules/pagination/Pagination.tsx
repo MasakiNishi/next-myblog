@@ -27,11 +27,11 @@ const Pagination = ({
     query ? `${path}?query=${query}&page=${page}` : `${path}/${page}`;
 
   return (
-    <div className="flex items-center justify-between px-4 sm:px-6">
+    <div className="flex items-center justify-between mt-0 mx-auto">
       <div className="flex sm:flex-1 sm:items-center sm:justify-center">
-        <div>
+        <div className="flex flex-wrap justify-end">
           <nav
-            className="relative z-0 inline-flex -space-x-px rounded-md"
+            className="relative z-0 inline-flex -space-x-px rounded-md flex-wrap justify-end"
             aria-label="Pagination"
           >
             <Link

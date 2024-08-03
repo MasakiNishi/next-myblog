@@ -42,7 +42,7 @@ const SiteSearch = () => {
   };
 
   return (
-    <div>
+    <>
       <IconButton
         aria-label="ブログ内検索"
         aria-haspopup="true"
@@ -61,7 +61,10 @@ const SiteSearch = () => {
         className="z-10"
       >
         {({ TransitionProps }) => (
-          <Grow {...TransitionProps} className="origin-top-right">
+          <Grow
+            {...TransitionProps}
+            className="origin-bottom-left lg:origin-top-right"
+          >
             <Paper className="p-2">
               <ClickAwayListener onClickAway={handleClose}>
                 <div className="flex items-center">
@@ -96,7 +99,7 @@ const SiteSearch = () => {
           </Grow>
         )}
       </Popper>
-    </div>
+    </>
   );
 };
 

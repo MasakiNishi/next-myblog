@@ -26,8 +26,8 @@ const Blog = async ({ params }: CategoryPageProps) => {
   const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
-    <div className="flex flex-col flex-nowrap w-main mx-auto p-10">
-      <h1 className="text-2xl font-bold text-gray-600 mb-9">
+    <div className="flex flex-col flex-nowrap w-main mx-auto p-4 sm:p-10">
+      <h1 className="text-center sm:text-left font-bold text-gray-600 mb-6 sm:mb-9">
         Blog - {categoryName}
       </h1>
       {postList!.map((post) => {

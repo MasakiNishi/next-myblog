@@ -1,21 +1,34 @@
 // component
 import Link from "next/link";
 import Avatar from "../../atoms/common/image/Avatar";
-import HeaderTextTitle from "../../atoms/header/text/HeaderTitleText";
+import HeaderTitleText from "../../atoms/header/text/HeaderTitleText";
 
-const HeaderTitle = async ({
+const HeaderTitle = ({
   title,
-  subtitle,
+  subTitle,
   avatarSrc,
+  className,
+  avatarClassName,
+  titleClassName,
+  subTitleClassName,
 }: {
   title: string;
-  subtitle: string;
+  subTitle: string;
   avatarSrc: string;
+  className?: string;
+  avatarClassName?: string;
+  titleClassName?: string;
+  subTitleClassName?: string;
 }) => {
   return (
-    <Link href="/" className="flex flex-col items-center space-y-2">
-      <Avatar imageSrc={avatarSrc} />
-      <HeaderTextTitle title={title} subtitle={subtitle} />
+    <Link href="/" className={`${className}`}>
+      <Avatar imageSrc={avatarSrc} className={`${avatarClassName}`} />
+      <HeaderTitleText
+        title={title}
+        subTitle={subTitle}
+        titleClassName={titleClassName}
+        subTitleClassName={subTitleClassName}
+      />
     </Link>
   );
 };

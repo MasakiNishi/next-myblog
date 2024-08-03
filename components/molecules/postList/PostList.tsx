@@ -10,16 +10,16 @@ import Link from "next/link";
 
 const PostList = ({ post }: { post: PostListType }) => {
   return (
-    <article className="mb-9 group">
+    <article className="mb-6 sm:mb-9 group">
       <div className="flex items-center">
         <Link href={`/blog/${post.slug}`}>
           <PostListImage
             src={post.featuredImage.url}
             alt=""
-            className="w-[90px] h-[90px] group-hover:rounded-[50%_90%] transition-all duration-500 ease-in-out"
+            className="w-9 h-9 sm:w-[90px] sm:h-[90px] group-hover:rounded-[50%_90%] transition-all duration-500 ease-in-out"
           />
         </Link>
-        <div className="ml-8">
+        <div className="ml-3 sm:ml-8">
           <div className="flex items-baseline mb-2">
             <PostListCategory href={`/blog/category/${post.category.slug}`}>
               {post.category.name}

@@ -10,10 +10,10 @@ import {
   IconButton,
   Paper,
   Grow,
+  Popper,
   ClickAwayListener,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import { Popper } from "@mui/material";
 import Link from "next/link";
 
 interface CategoryFilterProps {
@@ -33,7 +33,7 @@ const CategoryFilter = ({ categoryList }: CategoryFilterProps) => {
   };
 
   return (
-    <div>
+    <>
       <IconButton
         aria-label="記事カテゴリーフィルター"
         aria-haspopup="true"
@@ -52,7 +52,10 @@ const CategoryFilter = ({ categoryList }: CategoryFilterProps) => {
         className="z-10"
       >
         {({ TransitionProps }) => (
-          <Grow {...TransitionProps} className="origin-top-right">
+          <Grow
+            {...TransitionProps}
+            className="origin-bottom-left lg:origin-top-right"
+          >
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList role="menu">
@@ -60,26 +63,28 @@ const CategoryFilter = ({ categoryList }: CategoryFilterProps) => {
                     key="category"
                     className="text-gray-800 pointer-events-none"
                   >
-                    Category
+                    Blog Category
                   </MenuItem>
-                  {categoryList?.map((category) => (
-                    <Link
-                      key={category.slug}
-                      href={`/blog/category/${category.slug}`}
-                      className="text-gray-800 hover:text-gray-800"
-                    >
-                      <MenuItem onClick={handleClose} className="font-light">
-                        {category.name}
-                      </MenuItem>
-                    </Link>
-                  ))}
+                  <nav>
+                    {categoryList?.map((category) => (
+                      <Link
+                        key={category.slug}
+                        href={`/blog/category/${category.slug}`}
+                        className="text-gray-800 hover:text-gray-800"
+                      >
+                        <MenuItem onClick={handleClose} className="font-light">
+                          {category.name}
+                        </MenuItem>
+                      </Link>
+                    ))}
+                  </nav>
                 </MenuList>
               </ClickAwayListener>
             </Paper>
           </Grow>
         )}
       </Popper>
-    </div>
+    </>
   );
 };
 

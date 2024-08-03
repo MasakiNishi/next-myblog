@@ -1,17 +1,22 @@
 // component
 const HeaderTextTitle = ({
   title,
-  subtitle,
+  subTitle,
+  titleClassName,
+  subTitleClassName,
 }: {
   title: string;
-  subtitle: string;
+  subTitle: string;
+  titleClassName?: string;
+  subTitleClassName?: string;
 }) => {
   return (
-    <div className="text-center">
-      <p className="mt-4 text-2xl font-light text-gray-600 leading-5">
+    <div className="lg:text-center text-left">
+      <p className={titleClassName}>
         {title}
+        <br />
+        <small className={subTitleClassName}>{subTitle}</small>
       </p>
-      <small className="text-xs text-gray-500">{subtitle}</small>
     </div>
   );
 };

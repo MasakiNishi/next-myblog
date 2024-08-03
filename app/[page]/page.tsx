@@ -22,12 +22,12 @@ const Page = async ({ params }: PostPageProps) => {
   }
 
   return (
-    <article className="w-main mx-auto max-w-[50em] p-14">
-      <div className="mb-7">
+    <article className="w-main mx-auto max-w-[50em] p-4 sm:p-14">
+      <div className="mt-4 sm:mt-0 mb-7">
         <PostTitle>{page.title}</PostTitle>
       </div>
       {page.featuredImage && (
-        <div className="mb-7 -mx-14 flex justify-center">
+        <div className="mb-7 -mx-4 sm:-mx-14 flex justify-center">
           <PostFeatureImage
             src={page.featuredImage.url}
             alt={page.featuredImage.alt}

@@ -9,13 +9,12 @@ const Avatar = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={`w-16 h-16 rounded-full overflow-hidden border border-customGray relative ${className}`}
-    >
+    <div className={`${className}`}>
       <Image
         src={imageSrc}
         alt="プロフィール画像"
         fill
+        sizes="width: 100%"
         className="object-cover"
         priority={true}
       />

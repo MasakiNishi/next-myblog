@@ -26,7 +26,7 @@ const PostPage = async ({ params }: PostPageProps) => {
   }
 
   return (
-    <article className="w-main mx-auto max-w-[50em] p-14">
+    <article className="w-main mx-auto max-w-[50em] p-4 sm:p-14">
       <div className="mb-4 text-sm">
         <PostCategory href={post.category.slug}>
           {post.category.name}
@@ -44,7 +44,7 @@ const PostPage = async ({ params }: PostPageProps) => {
           更新日: {post.modifiedDate.split("T")[0]}
         </PostDate>
       </div>
-      <div className="mb-7 -mx-14 flex justify-center">
+      <div className="mb-7 -mx-4 sm:-mx-14 flex justify-center">
         <PostFeatureImage
           src={post.featuredImage.url}
           alt={post.featuredImage.alt}

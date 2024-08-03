@@ -30,7 +30,10 @@ const PostProfile = async () => {
 
   return (
     <div className="flex flex-row items-center mt-12 py-12 border-t border-b border-t-customGray border-b-customGray">
-      <Avatar imageSrc={profileImage} className="mx-4 flex-shrink-0" />
+      <Avatar
+        imageSrc={profileImage}
+        className="w-9 h-9 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-customGray relative m-3 ml-0 sm:m-4 flex-shrink-0"
+      />
       <div>
         <ProfileName
           name={profileName}
