@@ -44,18 +44,26 @@ const Search = () => {
         <p>検索キーワードを入力してください。</p>
       ) : (
         <>
-          {postList.map((post) => (
-            <div key={post.id}>
-              <PostList post={post} />
-            </div>
-          ))}
-          <Pagination
-            total={total}
-            sizePerPage={PostConst.sizePerPage}
-            currentPage={currentPage}
-            path="/blog/search"
-            query={queryParam}
-          />
+          {postList.length === 0 ? (
+            <p>
+              記事が見つかりませんでした。別の検索キーワードを入力してください。
+            </p>
+          ) : (
+            postList.map((post) => (
+              <div key={post.id}>
+                <PostList post={post} />
+              </div>
+            ))
+          )}
+          {postList.length > 0 && (
+            <Pagination
+              total={total}
+              sizePerPage={PostConst.sizePerPage}
+              currentPage={currentPage}
+              path="/blog/search"
+              query={queryParam}
+            />
+          )}
         </>
       )}
     </div>
