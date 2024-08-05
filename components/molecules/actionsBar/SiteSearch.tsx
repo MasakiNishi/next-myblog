@@ -69,7 +69,7 @@ const SiteSearch = () => {
               <ClickAwayListener onClickAway={handleClose}>
                 <div className="flex items-center">
                   <InputBase
-                    placeholder="Search…"
+                    placeholder="Blog Search…"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
