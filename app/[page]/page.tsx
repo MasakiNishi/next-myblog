@@ -37,6 +37,7 @@ const Page = async ({ params }: PostPageProps) => {
       <div
         id="content"
         dangerouslySetInnerHTML={{ __html: page.content }}
+        suppressHydrationWarning={true}
       ></div>
     </article>
   );

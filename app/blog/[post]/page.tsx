@@ -53,6 +53,7 @@ const PostPage = async ({ params }: PostPageProps) => {
       <div
         id="content"
         dangerouslySetInnerHTML={{ __html: post.content }}
+        suppressHydrationWarning={true}
       ></div>
       <div>
         <PostProfile />

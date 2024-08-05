@@ -151,14 +151,14 @@
     }
 
     & table {
-      @apply w-full h-auto text-center border border-customGray my-6 border-collapse overflow-x-auto block;
+      @apply w-full h-auto text-center my-6 border-collapse overflow-x-auto block;
+      white-space: nowrap;
       & thead {
         @apply bg-gray-50;
       }
       & th,
       & td {
         @apply border border-customGray;
-        white-space: nowrap;
       }
     }
 
