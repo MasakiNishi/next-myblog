@@ -21,15 +21,18 @@ const Search = () => {
 
   const [postList, setPostList] = useState<PostListType[]>([]);
   const [total, setTotal] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       const [fetchedPostList, fetchedTotal] = await PostService.getList({
         page: currentPage,
         search: queryParam,
       });
       setPostList(fetchedPostList);
       setTotal(fetchedTotal);
+      setIsLoading(false);
     };
 
     fetchData();
@@ -42,19 +45,19 @@ const Search = () => {
       </h1>
       {queryParam === "" ? (
         <p>検索キーワードを入力してください。</p>
+      ) : isLoading ? (
+        <p>検索中...</p>
+      ) : postList.length === 0 ? (
+        <p>
+          記事が見つかりませんでした。別の検索キーワードを入力してください。
+        </p>
       ) : (
         <>
-          {postList.length === 0 ? (
-            <p>
-              記事が見つかりませんでした。別の検索キーワードを入力してください。
-            </p>
-          ) : (
-            postList.map((post) => (
-              <div key={post.id}>
-                <PostList post={post} />
-              </div>
-            ))
-          )}
+          {postList.map((post) => (
+            <div key={post.id}>
+              <PostList post={post} />
+            </div>
+          ))}
           {postList.length > 0 && (
             <Pagination
               total={total}
