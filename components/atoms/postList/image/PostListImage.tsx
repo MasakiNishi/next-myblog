@@ -1,28 +1,43 @@
+// const
+import ProfileConst from "../../../../constants/ProfileConst";
+// type
+import FeaturedImageType from "@/types/FeaturedImageType";
 // component
 import Image from "next/image";
 
 const PostListImage = ({
-  src,
-  alt,
+  featuredImage,
   className = "",
 }: {
-  src: string;
-  alt: string;
+  featuredImage: FeaturedImageType;
   className?: string;
 }) => {
   return (
-    <div
+    <picture
       className={`relative inline-block overflow-hidden border border-customGray rounded-[75%_65%] m-0 ${className}`}
     >
+      <source
+        type="image/webp"
+        srcSet={`${featuredImage.thumbnail}.webp, ${featuredImage.doubleThumbnail}.webp 2x`}
+      />
+      <source
+        type="image/jpeg"
+        srcSet={`${featuredImage.thumbnail}, ${featuredImage.doubleThumbnail} 2x`}
+      />
       <Image
-        src={src}
-        alt={alt}
+        src={
+          featuredImage.thumbnail
+            ? featuredImage.thumbnail
+            : ProfileConst.profileImage
+        }
+        alt={featuredImage.alt ? featuredImage.alt : "thumbnail"}
+        loading="lazy"
+        decoding="async"
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        priority={true}
+        sizes="100%"
         className="object-cover"
       />
-    </div>
+    </picture>
   );
 };
 

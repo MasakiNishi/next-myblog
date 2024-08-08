@@ -11,7 +11,7 @@ export class WpGraphQlPostConst {
     date
     featuredImage {
         node {
-            sourceUrl
+            customImageSizes(sizes: ["thumbnail", "2x-thumbnail"])
             altText
         }
     }
@@ -36,7 +36,7 @@ export class WpGraphQlPostConst {
     content
     featuredImage {
         node {
-            sourceUrl
+            customImageSizes(sizes: ["medium", "large", "2x-medium", "2x-large", "ogp", "full"])
             altText
         }
     }
@@ -143,7 +143,7 @@ export class WpGraphQlPageConst {
     content
     featuredImage {
         node {
-            sourceUrl
+            customImageSizes(sizes: ["medium", "large", "2x-medium", "2x-large", "ogp", "full"])
             altText
         }
     }

@@ -4,8 +4,8 @@ import PageType from "../../types/PageType";
 // service
 import PageService from "../../services/PageService";
 // component
-import PostTitle from "../../components/atoms/post/text/PostTitle";
-import PostFeatureImage from "../../components/atoms/post/image/PostFeatureImage";
+import PageTitle from "../../components/atoms/common/text/Title";
+import PageFeatureImage from "../../components/atoms/common/image/FeatureImage";
 
 interface PostPageProps {
   params: {
@@ -24,15 +24,13 @@ const Page = async ({ params }: PostPageProps) => {
   return (
     <article className="w-main mx-auto max-w-[50em] p-4 sm:p-14">
       <div className="mt-4 sm:mt-0 mb-7">
-        <PostTitle>{page.title}</PostTitle>
+        <PageTitle>{page.title}</PageTitle>
       </div>
       {page.featuredImage && (
-        <div className="mb-7 -mx-4 sm:-mx-14 flex justify-center">
-          <PostFeatureImage
-            src={page.featuredImage.url}
-            alt={page.featuredImage.alt}
-          />
-        </div>
+        <PageFeatureImage
+          featuredImage={page.featuredImage}
+          className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
+        />
       )}
       <div
         id="content"

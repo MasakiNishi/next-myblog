@@ -9,14 +9,15 @@ const Avatar = ({
   className?: string;
 }) => {
   return (
-    <div className={`${className}`}>
+    <div className={`relative ${className}`}>
       <Image
         src={imageSrc}
         alt="プロフィール画像"
+        loading="lazy"
+        decoding="async"
         fill
-        sizes="width: 100%"
+        sizes="100%"
         className="object-cover"
-        priority={true}
       />
     </div>
   );

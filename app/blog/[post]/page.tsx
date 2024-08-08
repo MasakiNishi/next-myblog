@@ -4,10 +4,10 @@ import PostType from "../../../types/PostType";
 // service
 import PostService from "../../../services/PostService";
 // component
-import PostFeatureImage from "../../../components/atoms/post/image/PostFeatureImage";
+import PostFeatureImage from "../../../components/atoms/common/image/FeatureImage";
 import PostCategory from "../../../components/atoms/post/text/PostCategory";
 import PostDate from "../../../components/atoms/post/text/PostDate";
-import PostTitle from "../../../components/atoms/post/text/PostTitle";
+import PostTitle from "../../../components/atoms/common/text/Title";
 import PostSubTitle from "../../../components/atoms/post/text/PostSubTitle";
 import PostProfile from "../../../components/molecules/post/PostProfile";
 
@@ -44,12 +44,12 @@ const PostPage = async ({ params }: PostPageProps) => {
           更新日: {post.modifiedDate.split("T")[0]}
         </PostDate>
       </div>
-      <div className="mb-7 -mx-4 sm:-mx-14 flex justify-center">
+      {post.featuredImage && (
         <PostFeatureImage
-          src={post.featuredImage.url}
-          alt={post.featuredImage.alt}
+          featuredImage={post.featuredImage}
+          className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
         />
-      </div>
+      )}
       <div
         id="content"
         dangerouslySetInnerHTML={{ __html: post.content }}

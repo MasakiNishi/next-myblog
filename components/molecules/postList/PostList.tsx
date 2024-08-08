@@ -14,8 +14,7 @@ const PostList = ({ post }: { post: PostListType }) => {
       <div className="flex items-center">
         <Link href={`/blog/${post.slug}`}>
           <PostListImage
-            src={post.featuredImage.url}
-            alt=""
+            featuredImage={post.featuredImage}
             className="w-9 h-9 sm:w-[90px] sm:h-[90px] group-hover:rounded-[50%_90%] transition-all duration-500 ease-in-out"
           />
         </Link>

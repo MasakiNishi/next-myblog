@@ -34,7 +34,9 @@ class PostService {
           slug: data.node.slug,
           date: data.node.date,
           featuredImage: {
-            url: data.node.featuredImage.node.sourceUrl,
+            thumbnail: data.node.featuredImage.node.customImageSizes.thumbnail,
+            doubleThumbnail:
+              data.node.featuredImage.node.customImageSizes["2x-thumbnail"],
             alt: data.node.featuredImage.node.altText,
           },
           category: {
@@ -56,6 +58,19 @@ class PostService {
     try {
       const res = await RepositoryFactory.post.getOne({ id });
       const data = res.data.data.post;
+      const featuredImage =
+        data.featuredImage && data.featuredImage.node
+          ? {
+              medium: data.featuredImage.node.customImageSizes.medium,
+              large: data.featuredImage.node.customImageSizes.large,
+              doubleMedium:
+                data.featuredImage.node.customImageSizes["2x-medium"],
+              doubleLarge: data.featuredImage.node.customImageSizes["2x-large"],
+              ogp: data.featuredImage.node.customImageSizes.ogp,
+              full: data.featuredImage.node.customImageSizes.full,
+              alt: data.featuredImage.node.altText,
+            }
+          : null;
       const post: PostType = {
         id: data.id,
         title: data.title,
@@ -65,10 +80,7 @@ class PostService {
         modifiedDate: data.modified,
         content: data.content,
         description: data.description.description,
-        featuredImage: {
-          url: data.featuredImage.node.sourceUrl,
-          alt: data.featuredImage.node.altText,
-        },
+        featuredImage: featuredImage,
         category: {
           slug: data.categories.edges[0].node.slug,
           name: data.categories.edges[0].node.name,

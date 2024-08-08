@@ -169,8 +169,12 @@
       @apply w-full h-full;
     }
 
-    & iframe {
-      @apply w-full;
+    & .resp-image-link {
+      @apply mb-7 -mx-4 sm:-mx-14 flex justify-center;
+
+      & picture {
+        @apply block relative w-full max-w-[800px] h-96 -mx-14 overflow-hidden;
+      }
     }
   }
 }

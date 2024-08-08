@@ -13,7 +13,13 @@ class PageService {
       const featuredImage =
         data.featuredImage && data.featuredImage.node
           ? {
-              url: data.featuredImage.node.sourceUrl,
+              medium: data.featuredImage.node.customImageSizes.medium,
+              large: data.featuredImage.node.customImageSizes.large,
+              doubleMedium:
+                data.featuredImage.node.customImageSizes["2x-medium"],
+              doubleLarge: data.featuredImage.node.customImageSizes["2x-large"],
+              ogp: data.featuredImage.node.customImageSizes.ogp,
+              full: data.featuredImage.node.customImageSizes.full,
               alt: data.featuredImage.node.altText,
             }
           : null;

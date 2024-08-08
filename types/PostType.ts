@@ -10,7 +10,7 @@ interface PostType {
   modifiedDate: string;
   content: string;
   description: string;
-  featuredImage: FeaturedImageType;
+  featuredImage: FeaturedImageType | null;
   category: CategoryType;
 }
 

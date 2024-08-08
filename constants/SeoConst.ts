@@ -1,6 +1,5 @@
 class SeoConst {
-  static ogpSrc =
-    "https://img.masakinishi.com/uploads/20200215011545/profile-1200x630.jpg.webp";
+  static defaultOgp = "https://img.masakinishi.com/20240808030919/profile.jpg";
 }
 
 export default SeoConst;

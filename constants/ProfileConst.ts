@@ -1,7 +1,7 @@
 class ProfileConst {
   static id = "dXNlcjox";
   static profileImage =
-    "https://img.masakinishi.com/uploads/20200215011545/profile-100x100.jpg.webp";
+    "https://img.masakinishi.com/20240808030919/profile-150x150.jpg";
   static profileName = "Masaki Nishi";
   static profileJobTitle = "ソフトウェアエンジニア";
   static profileDescription =
