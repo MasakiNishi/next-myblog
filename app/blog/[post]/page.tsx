@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
+// constant
+import SeoConst from "../../../constants/SeoConst";
+import ProfileConst from "../../../constants/ProfileConst";
 // type
 import PostType from "../../../types/PostType";
+import type { Metadata } from "next";
 // service
 import PostService from "../../../services/PostService";
 // component
@@ -17,6 +21,55 @@ interface PostPageProps {
   };
 }
 
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const post: PostType | null = await PostService.getOne({ id: params.post });
+
+  if (!post) {
+    return {
+      title: "ページが見つかりません",
+      description: "お探しのページは見つかりませんでした。",
+    };
+  }
+
+  const title = `${post.title} | ${SeoConst.myName}`;
+  const url = `/blog/${post.slug}`;
+  const image = post.featuredImage?.ogp
+    ? post.featuredImage.ogp
+    : SeoConst.defaultOgp.url;
+  const imageAlt = post.featuredImage?.alt
+    ? post.featuredImage.alt
+    : "Ogp Image";
+
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: title,
+      description: post.description,
+      url: url,
+      images: [
+        {
+          url: image,
+          width: SeoConst.defaultOgp.width,
+          height: SeoConst.defaultOgp.height,
+          alt: imageAlt,
+          type: "image/jpeg",
+        },
+      ],
+    },
+    twitter: {
+      title: title,
+      description: post.description,
+      images: [image],
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
 const PostPage = async ({ params }: PostPageProps) => {
   const post: PostType | null = await PostService.getOne({ id: params.post });
 
@@ -25,8 +78,75 @@ const PostPage = async ({ params }: PostPageProps) => {
     return null; // 実際には返されないが、TypeScriptの型エラーを防ぐため
   }
 
+  const blogSlug = `${SeoConst.domain}/blog`;
+  const postSlug = `${blogSlug}/${post.slug}`;
+  const title = `${post.title} | ${SeoConst.defaultTitle}`;
+  const image = post.featuredImage?.ogp
+    ? post.featuredImage.ogp
+    : SeoConst.defaultOgp.url;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: postSlug,
+    headline: title,
+    description: post.description,
+    image: {
+      "@type": "ImageObject",
+      url: image,
+    },
+    datePublished: post.date,
+    dateModified: post.modifiedDate,
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SeoConst.domain,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: blogSlug,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: post.title,
+          item: postSlug,
+        },
+      ],
+    },
+    author: {
+      "@type": "Person",
+      name: SeoConst.myName,
+      url: SeoConst.domain,
+      image: SeoConst.defaultOgp.url,
+      sameAs: [
+        ProfileConst.socialLinks[0].href,
+        ProfileConst.socialLinks[1].href,
+        ProfileConst.socialLinks[2].href,
+      ],
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SeoConst.myName,
+      logo: {
+        "@type": "ImageObject",
+        url: SeoConst.icon,
+      },
+    },
+  };
+
   return (
     <article className="w-main mx-auto max-w-[50em] p-4 sm:p-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="mb-4 text-sm">
         <PostCategory href={post.category.slug}>
           {post.category.name}

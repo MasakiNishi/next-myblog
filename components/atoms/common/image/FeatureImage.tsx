@@ -41,7 +41,9 @@ const FeatureImage = ({
           srcSet={`${featuredImage.large}, ${featuredImage.doubleLarge} 2x`}
         />
         <Image
-          src={featuredImage.large ? featuredImage.large : SeoConst.defaultOgp}
+          src={
+            featuredImage.large ? featuredImage.large : SeoConst.defaultOgp.url
+          }
           alt={featuredImage.alt ? featuredImage.alt : "Featured Image"}
           loading="lazy"
           decoding="async"

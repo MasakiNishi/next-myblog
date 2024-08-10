@@ -9,7 +9,7 @@ const HeaderMenu = () => {
       {PageConst.pageList?.map((page) => (
         <Link
           key={page}
-          href={page === "top" ? "/" : `/${page}`}
+          href={page === "home" ? "/" : `/${page}`}
           className="text-base font-light text-gray-800"
         >
           {page}

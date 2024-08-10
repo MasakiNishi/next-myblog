@@ -1,5 +1,5 @@
 class PageConst {
-  static pageList = ["top", "blog", "about", "contact"];
+  static pageList = ["home", "blog", "about", "contact"];
 }
 
 export default PageConst;

@@ -9,7 +9,7 @@ class ProfileConst {
   static socialLinks = [
     { href: "https://x.com/ni_5h1", title: "X" },
     { href: "https://www.youtube.com/@ni_5h1", title: "YouTube" },
-    { href: "https://www.instagram.com/ni_5h1/", title: "Instagram" },
+    { href: "https://www.instagram.com/ni_5h1", title: "Instagram" },
   ];
 }
 

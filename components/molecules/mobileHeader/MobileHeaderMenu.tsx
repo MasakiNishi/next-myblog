@@ -55,7 +55,7 @@ const MobileHeader = () => {
                     {PageConst.pageList?.map((page) => (
                       <Link
                         key={page}
-                        href={page === "top" ? "/" : `/${page}`}
+                        href={page === "home" ? "/" : `/${page}`}
                         className="text-gray-800 hover:text-gray-800"
                       >
                         <MenuItem onClick={handleClose}>
