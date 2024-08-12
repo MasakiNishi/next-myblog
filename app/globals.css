@@ -11,7 +11,7 @@
     @apply box-border;
   }
   body {
-    @apply font-body !important;
+    @apply font-body;
   }
   a {
     @apply text-linkColor;

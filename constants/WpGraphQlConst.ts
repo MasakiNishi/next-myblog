@@ -177,3 +177,40 @@ export class WpGraphQlProfileConst {
         }
     }`;
 }
+
+export class WpGraphQlSitemapConst {
+  // サイトマップ用のスラッグ一覧取得
+  private static _allSlugItem = `
+    edges {
+        node {
+            slug
+            modified
+        }
+    }
+    pageInfo {
+        offsetPagination {
+            total
+        }
+    }`;
+
+  // 記事のスラッグ一覧取得
+  static allPostSlug = `query allPostSlug($offsetPagination: OffsetPagination!) {
+        posts(where: {offsetPagination: $offsetPagination}) {
+            ${this._allSlugItem}
+        }
+    }`;
+
+  // カテゴリーごとの記事のスラッグ一覧取得
+  static allPostSlugByCategory = `query allPostSlug($offsetPagination: OffsetPagination!, $categoryId: Int!) {
+        posts(where: {offsetPagination: $offsetPagination, categoryId: $categoryId}) {
+            ${this._allSlugItem}
+        }
+    }`;
+
+  // 固定ページのスラッグ一覧取得
+  static allPageSlug = `query allPageSlug {
+        pages {
+            ${this._allSlugItem}
+        }
+    }`;
+}
