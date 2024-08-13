@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 // component
 import Layout from "../components/templates/Layout";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SeoConst.domain),
@@ -65,19 +66,21 @@ export const metadata: Metadata = {
     },
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     nocache: false,
     googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
+      index: false,
+      follow: false,
+      noimageindex: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
 };
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -87,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="ja" prefix="og: https://ogp.me/ns#">
       <body
-        className={`my-[60px] lg:my-[0px] lg:mr-[60px]`}
+        className={`my-[60px] lg:my-[0px] lg:mr-[60px] ${inter.className}`}
         suppressHydrationWarning={true}
       >
         <Layout>{children}</Layout>
