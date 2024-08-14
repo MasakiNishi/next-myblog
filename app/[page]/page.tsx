@@ -10,6 +10,7 @@ import PageService from "../../services/PageService";
 // component
 import PageTitle from "../../components/atoms/common/text/Title";
 import PageFeatureImage from "../../components/atoms/common/image/FeatureImage";
+import Content from "../../components/atoms/common/text/Content";
 
 interface PageProps {
   params: {
@@ -166,11 +167,7 @@ const Page = async ({ params }: PageProps) => {
           className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
         />
       )}
-      <div
-        id="content"
-        dangerouslySetInnerHTML={{ __html: page.content }}
-        suppressHydrationWarning={true}
-      ></div>
+      <Content content={page.content} />
     </article>
   );
 };

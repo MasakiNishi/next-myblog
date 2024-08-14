@@ -14,6 +14,7 @@ import PostDate from "../../../components/atoms/post/text/PostDate";
 import PostTitle from "../../../components/atoms/common/text/Title";
 import PostSubTitle from "../../../components/atoms/post/text/PostSubTitle";
 import PostProfile from "../../../components/molecules/post/PostProfile";
+import Content from "../../../components/atoms/common/text/Content";
 
 interface PostPageProps {
   params: {
@@ -183,11 +184,7 @@ const PostPage = async ({ params }: PostPageProps) => {
           className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
         />
       )}
-      <div
-        id="content"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-        suppressHydrationWarning={true}
-      ></div>
+      <Content content={post.content} />
       <div>
         <PostProfile />
       </div>
