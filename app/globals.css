@@ -108,12 +108,14 @@
 
     & li {
       @apply mb-4;
-      & p {
-        @apply mb-0;
-      }
-      &:last-child {
-        @apply mb-0;
-      }
+    }
+
+    & li p {
+      @apply mb-0;
+    }
+
+    & li:last-child {
+      @apply mb-0;
     }
 
     & blockquote {
@@ -151,13 +153,15 @@
     & table {
       @apply w-full h-auto text-center my-6 border-collapse overflow-x-auto block;
       white-space: nowrap;
-      & thead {
-        @apply bg-gray-50;
-      }
-      & th,
-      & td {
-        @apply border border-customGray;
-      }
+    }
+
+    & table thead {
+      @apply bg-gray-50;
+    }
+
+    & table th,
+    & table td {
+      @apply border border-customGray;
     }
 
     @apply sm:text-lg lg:text-xl;
