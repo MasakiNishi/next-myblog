@@ -188,7 +188,7 @@ const Search = async ({ searchParams }: SearchPageProps) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <h1 className="text-center sm:text-left font-bold text-gray-600 mb-6 sm:mb-9">
-        Blog - "{queryParam}"
+        {`Blog - "${queryParam}"`}
       </h1>
       {queryParam === "" ? (
         <p>検索キーワードを入力してください。</p>
