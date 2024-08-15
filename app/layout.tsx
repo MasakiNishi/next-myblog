@@ -8,6 +8,7 @@ import "./globals.css";
 import Layout from "../components/templates/Layout";
 import { Inter } from "next/font/google";
 import GoogleAnalytics from "../components/atoms/common/js/GoogleAnalytics";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SeoConst.domain),
@@ -85,7 +86,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head prefix="og: https://ogp.me/ns#">
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
       </head>
       <body
         className={`my-[60px] lg:my-[0px] lg:mr-[60px] ${inter.className}`}
