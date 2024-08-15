@@ -11,6 +11,7 @@ import PageService from "../../services/PageService";
 import PageTitle from "../../components/atoms/common/text/Title";
 import PageFeatureImage from "../../components/atoms/common/image/FeatureImage";
 import Content from "../../components/atoms/common/text/Content";
+import TwitterWidgets from "../../components/atoms/common/js/TwitterWidgets";
 
 interface PageProps {
   params: {
@@ -154,6 +155,7 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <article className="w-main mx-auto max-w-[50em] p-4 sm:p-14">
+      <TwitterWidgets />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

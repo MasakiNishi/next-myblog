@@ -15,6 +15,7 @@ import PostTitle from "../../../components/atoms/common/text/Title";
 import PostSubTitle from "../../../components/atoms/post/text/PostSubTitle";
 import PostProfile from "../../../components/molecules/post/PostProfile";
 import Content from "../../../components/atoms/common/text/Content";
+import TwitterWidgets from "../../../components/atoms/common/js/TwitterWidgets";
 
 interface PostPageProps {
   params: {
@@ -157,6 +158,7 @@ const PostPage = async ({ params }: PostPageProps) => {
 
   return (
     <article className="w-main mx-auto max-w-[50em] p-4 sm:p-14">
+      <TwitterWidgets />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
