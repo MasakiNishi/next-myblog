@@ -7,6 +7,7 @@ import "./globals.css";
 // component
 import Layout from "../components/templates/Layout";
 import { Inter } from "next/font/google";
+import GoogleAnalytics from "../components/atoms/common/js/GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SeoConst.domain),
@@ -88,7 +89,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" prefix="og: https://ogp.me/ns#">
+    <html lang="ja">
+      <head prefix="og: https://ogp.me/ns#">
+        <GoogleAnalytics />
+      </head>
       <body
         className={`my-[60px] lg:my-[0px] lg:mr-[60px] ${inter.className}`}
         suppressHydrationWarning={true}
