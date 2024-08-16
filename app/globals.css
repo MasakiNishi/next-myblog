@@ -119,35 +119,19 @@
     }
 
     & blockquote {
-      @apply my-10 p-6 border-solid border-l-8 border-customGray italic relative;
+      @apply my-10 p-6 border-solid border-l-8 border-customGray italic;
+    }
 
-      & li & p {
-        @apply mb-0;
-      }
+    & blockquote li p {
+      @apply mb-0;
+    }
 
-      & p {
-        @apply mb-6;
-        &:last-child {
-          @apply mb-0;
-        }
-      }
+    & blockquote p {
+      @apply mb-6;
+    }
 
-      &::before,
-      &::after {
-        background: #fff;
-        content: "";
-        height: 5px;
-        left: 50%;
-        margin-left: -47%;
-        position: absolute;
-        top: -5px;
-        width: 94%;
-      }
-
-      &::after {
-        top: auto;
-        bottom: -5px;
-      }
+    & blockquote p:last-child {
+      @apply mb-0;
     }
 
     & table {
