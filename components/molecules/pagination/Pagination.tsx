@@ -45,6 +45,7 @@ const Pagination = ({
               href={generateLink(Math.max(1, currentPage - 1))}
               className="relative inline-flex items-center px-3 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
             >
+              <span className="sr-only">Back</span>
               <ArrowBackIosNewIcon className="w-3 h-3" />
             </Link>
             {[...Array(PaginationConst.allBox)].map((_, i) => {
@@ -96,6 +97,7 @@ const Pagination = ({
               href={generateLink(Math.min(totalPage, currentPage + 1))}
               className="relative inline-flex items-center px-3 py-2 text-sm font-normal text-gray-600 hover:bg-gray-50"
             >
+              <span className="sr-only">Next</span>
               <ArrowForwardIosIcon className="w-3 h-3" />
             </Link>
             <Link
