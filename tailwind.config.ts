@@ -13,7 +13,7 @@ const config: Config = {
       },
       colors: {
         customGray: "#dedede",
-        linkColor: "#709425",
+        linkColor: "#1a0dab",
         greenBgColor: "#f4faed",
         xColor: "#000000",
         youtubeColor: "#FF0000",
