@@ -14,7 +14,8 @@ const config: Config = {
       colors: {
         customGray: "#dedede",
         linkColor: "#1a0dab",
-        greenBgColor: "#f4faed",
+        linkMobileColor: "#1558d6",
+        greenBgColor: "#f0f8ff",
         xColor: "#000000",
         youtubeColor: "#FF0000",
         instagramGradientStart: "#f09433",

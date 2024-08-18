@@ -12,10 +12,11 @@
     @apply font-body;
   }
   a {
-    @apply text-linkColor;
+    @apply text-linkMobileColor sm:text-linkColor;
   }
+
   a:hover {
-    @apply text-linkColor;
+    @apply text-linkMobileColor sm:text-linkColor;
   }
 
   h1 {
@@ -32,7 +33,7 @@
     overflow-wrap: break-word;
 
     & a {
-      @apply text-linkColor;
+      @apply text-linkColor underline;
     }
 
     & code:not(pre) {
