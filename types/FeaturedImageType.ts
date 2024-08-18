@@ -7,6 +7,8 @@ interface FeaturedImageType {
   doubleLarge?: string;
   ogp?: string;
   full?: string;
+  width?: number;
+  height?: number;
   alt?: string;
 }
 

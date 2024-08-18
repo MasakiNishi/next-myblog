@@ -20,6 +20,8 @@ class PageService {
               doubleLarge: data.featuredImage.node.customImageSizes["2x-large"],
               ogp: data.featuredImage.node.customImageSizes.ogp,
               full: data.featuredImage.node.customImageSizes.full,
+              width: data.featuredImage.node.mediaDetails.sizes[0].width,
+              height: data.featuredImage.node.mediaDetails.sizes[0].height,
               alt: data.featuredImage.node.altText,
             }
           : null;

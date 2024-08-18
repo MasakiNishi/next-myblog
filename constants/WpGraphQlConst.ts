@@ -13,6 +13,12 @@ export class WpGraphQlPostConst {
         node {
             customImageSizes(sizes: ["thumbnail", "2x-thumbnail"])
             altText
+            mediaDetails {
+              sizes(include: _2X_THUMBNAIL) {
+                height
+                width
+              }
+            }
         }
     }
     id
@@ -38,6 +44,12 @@ export class WpGraphQlPostConst {
         node {
             customImageSizes(sizes: ["medium", "large", "2x-medium", "2x-large", "ogp", "full"])
             altText
+            mediaDetails {
+              sizes(include: LARGE) {
+                height
+                width
+              }
+            }
         }
     }
     id
@@ -145,6 +157,12 @@ export class WpGraphQlPageConst {
         node {
             customImageSizes(sizes: ["medium", "large", "2x-medium", "2x-large", "ogp", "full"])
             altText
+            mediaDetails {
+              sizes(include: LARGE) {
+                height
+                width
+              }
+            }
         }
     }
     id

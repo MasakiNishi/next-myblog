@@ -43,8 +43,8 @@ const FeatureImage = ({
             featuredImage.large ? featuredImage.large : SeoConst.defaultOgp.url
           }
           alt={featuredImage.alt ? featuredImage.alt : "Featured Image"}
-          loading="lazy"
-          decoding="async"
+          width={featuredImage.width}
+          height={featuredImage.height}
           className="size-full"
         />
       </picture>

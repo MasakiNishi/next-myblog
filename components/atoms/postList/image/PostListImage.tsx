@@ -29,6 +29,8 @@ const PostListImage = ({
             : ProfileConst.profileImage
         }
         alt={featuredImage.alt ? featuredImage.alt : "thumbnail"}
+        width={featuredImage.width}
+        height={featuredImage.height}
         loading="lazy"
         decoding="async"
         className="w-full h-full object-cover"

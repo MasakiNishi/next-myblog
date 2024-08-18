@@ -37,6 +37,8 @@ class PostService {
             thumbnail: data.node.featuredImage.node.customImageSizes.thumbnail,
             doubleThumbnail:
               data.node.featuredImage.node.customImageSizes["2x-thumbnail"],
+            width: data.node.featuredImage.node.mediaDetails.sizes[0].width,
+            height: data.node.featuredImage.node.mediaDetails.sizes[0].height,
             alt: data.node.featuredImage.node.altText,
           },
           category: {
@@ -68,6 +70,8 @@ class PostService {
               doubleLarge: data.featuredImage.node.customImageSizes["2x-large"],
               ogp: data.featuredImage.node.customImageSizes.ogp,
               full: data.featuredImage.node.customImageSizes.full,
+              width: data.featuredImage.node.mediaDetails.sizes[0].width,
+              height: data.featuredImage.node.mediaDetails.sizes[0].height,
               alt: data.featuredImage.node.altText,
             }
           : null;
