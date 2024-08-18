@@ -2,8 +2,6 @@
 import ProfileConst from "../../../../constants/ProfileConst";
 // type
 import FeaturedImageType from "@/types/FeaturedImageType";
-// component
-import Image from "next/image";
 
 const PostListImage = ({
   featuredImage,
@@ -24,7 +22,7 @@ const PostListImage = ({
         type="image/jpeg"
         srcSet={`${featuredImage.thumbnail}, ${featuredImage.doubleThumbnail} 2x`}
       />
-      <Image
+      <img
         src={
           featuredImage.thumbnail
             ? featuredImage.thumbnail
@@ -33,9 +31,7 @@ const PostListImage = ({
         alt={featuredImage.alt ? featuredImage.alt : "thumbnail"}
         loading="lazy"
         decoding="async"
-        fill
-        sizes="100%"
-        className="object-cover"
+        className="w-full h-full object-cover"
       />
     </picture>
   );

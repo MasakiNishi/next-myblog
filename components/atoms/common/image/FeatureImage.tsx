@@ -2,8 +2,6 @@
 import SeoConst from "../../../../constants/SeoConst";
 // type
 import FeaturedImageType from "@/types/FeaturedImageType";
-// component
-import Image from "next/image";
 
 const FeatureImage = ({
   featuredImage,
@@ -17,7 +15,7 @@ const FeatureImage = ({
       href={featuredImage.full}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${className}`}
+      className={`resp-image-link ${className}`}
     >
       <picture className="block relative w-full max-w-[800px] h-96 -mx-14 overflow-hidden">
         <source
@@ -40,16 +38,14 @@ const FeatureImage = ({
           type="image/jpeg"
           srcSet={`${featuredImage.large}, ${featuredImage.doubleLarge} 2x`}
         />
-        <Image
+        <img
           src={
             featuredImage.large ? featuredImage.large : SeoConst.defaultOgp.url
           }
           alt={featuredImage.alt ? featuredImage.alt : "Featured Image"}
           loading="lazy"
           decoding="async"
-          fill
-          sizes="100%"
-          className="object-cover"
+          className="size-full"
         />
       </picture>
     </a>

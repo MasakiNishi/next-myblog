@@ -150,18 +150,21 @@
 
     @apply sm:text-lg lg:text-xl;
 
-    & .size-large,
-    & .size-full {
-      @apply w-full h-full;
+    & iframe {
+      @apply w-full;
     }
+  }
 
-    & .resp-image-link {
-      @apply mb-7 -mx-4 sm:-mx-14 flex justify-center;
+  & .size-full {
+    @apply w-full h-auto;
+  }
 
-      & picture {
-        @apply block relative w-full max-w-[800px] h-96 -mx-14 overflow-hidden;
-      }
-    }
+  & .resp-image-link {
+    @apply h-auto mb-7 -mx-4 sm:-mx-14 flex justify-center;
+  }
+
+  & .resp-image-link picture {
+    @apply block relative w-full h-auto max-w-[800px] -mx-14 overflow-hidden;
   }
 }
 
