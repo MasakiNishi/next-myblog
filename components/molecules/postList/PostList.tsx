@@ -25,7 +25,7 @@ const PostList = ({ post }: { post: PostListType }) => {
             </PostListCategory>
             <PostListDate>{post.date.split("T")[0]}</PostListDate>
           </div>
-          <Link href={`/blog/${post.slug}`}>
+          <Link href={`/blog/${post.slug}`} className="group/title">
             <PostListTitle>{post.title}</PostListTitle>
             {post.subTitle && (
               <PostListSubTitle>{post.subTitle}</PostListSubTitle>
