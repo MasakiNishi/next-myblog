@@ -164,7 +164,7 @@ const PostPage = async ({ params }: PostPageProps) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mb-4 text-sm">
-        <PostCategory href={post.category.slug}>
+        <PostCategory href={`/blog/category/${post.category.slug}`}>
           {post.category.name}
         </PostCategory>
       </div>

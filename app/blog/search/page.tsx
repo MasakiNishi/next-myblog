@@ -11,6 +11,8 @@ import Pagination from "../../../components/molecules/pagination/Pagination";
 import PostListType from "../../../types/PostListType";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 interface SearchPageProps {
   searchParams: {
     query?: string;
