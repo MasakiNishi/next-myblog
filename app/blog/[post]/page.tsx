@@ -14,6 +14,7 @@ import PostDate from "../../../components/atoms/post/text/PostDate";
 import PostTitle from "../../../components/atoms/common/text/Title";
 import PostSubTitle from "../../../components/atoms/post/text/PostSubTitle";
 import PostProfile from "../../../components/molecules/post/PostProfile";
+import PostShare from "../../../components/molecules/post/PostShare";
 import Content from "../../../components/atoms/common/text/Content";
 import TwitterWidgets from "../../../components/atoms/common/js/TwitterWidgets";
 
@@ -190,6 +191,7 @@ const PostPage = async ({ params }: PostPageProps) => {
         />
       )}
       <Content content={post.content} />
+      <PostShare slug={postSlug} title={post.title} />
       <div>
         <PostProfile />
       </div>
