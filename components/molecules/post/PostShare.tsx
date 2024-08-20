@@ -19,7 +19,7 @@ import {
 const PostShare = ({ slug, title }: { slug: string; title: string }) => {
   const twitterId = SeoConst.twitterId.slice(1);
   return (
-    <div className="text-center my-8">
+    <div className="text-center mt-8 mb-12">
       <p className="text-lg sm:text-xl lg:text-xl text-gray-600 my-8">
         シェアする
       </p>

@@ -15,6 +15,7 @@ import PostTitle from "../../../components/atoms/common/text/Title";
 import PostSubTitle from "../../../components/atoms/post/text/PostSubTitle";
 import PostProfile from "../../../components/molecules/post/PostProfile";
 import PostShare from "../../../components/molecules/post/PostShare";
+import FollowSocialIcons from "../../../components/molecules/common/FollowSocialIcons";
 import Content from "../../../components/atoms/common/text/Content";
 import TwitterWidgets from "../../../components/atoms/common/js/TwitterWidgets";
 
@@ -192,6 +193,12 @@ const PostPage = async ({ params }: PostPageProps) => {
       )}
       <Content content={post.content} />
       <PostShare slug={postSlug} title={post.title} />
+      <div className="text-center mt-8 mb-5">
+        <p className="text-lg sm:text-xl lg:text-xl text-gray-600 mt-8 mb-5">
+          フォローする
+        </p>
+        <FollowSocialIcons />
+      </div>
       <div>
         <PostProfile />
       </div>

@@ -1,7 +1,7 @@
 // component
 import HeaderTitle from "../molecules/header/HeaderTitle";
 import HeaderMenu from "../molecules/header/HeaderMenu";
-import HeaderSocialIcons from "../molecules/header/HeaderSocialIcons";
+import FollowSocialIcons from "../molecules/common/FollowSocialIcons";
 import ProfileText from "../atoms/common/text/ProfileText";
 
 const Header = ({
@@ -41,7 +41,7 @@ const Header = ({
         <p className="mb-2 font-light text-center tracking-widest">
           Follow Me:
         </p>
-        <HeaderSocialIcons />
+        <FollowSocialIcons />
       </div>
     </header>
   );

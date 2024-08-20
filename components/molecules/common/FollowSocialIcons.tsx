@@ -5,7 +5,7 @@ import XIcon from "@mui/icons-material/X";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-const HeaderSocialIcons = () => {
+const FollowSocialIcons = () => {
   const x = ProfileConst.socialLinks[0];
   const youtube = ProfileConst.socialLinks[1];
   const instagram = ProfileConst.socialLinks[2];
@@ -43,4 +43,4 @@ const HeaderSocialIcons = () => {
   );
 };
 
-export default HeaderSocialIcons;
+export default FollowSocialIcons;
