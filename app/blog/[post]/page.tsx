@@ -17,6 +17,9 @@ import PostProfile from "../../../components/molecules/post/PostProfile";
 import Content from "../../../components/atoms/common/text/Content";
 import TwitterWidgets from "../../../components/atoms/common/js/TwitterWidgets";
 
+export const dynamic = "force-static";
+export const revalidate = 60;
+
 interface PostPageProps {
   params: {
     post: string;

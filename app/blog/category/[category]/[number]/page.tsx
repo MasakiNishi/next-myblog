@@ -11,6 +11,9 @@ import PostService from "../../../../../services/PostService";
 import PostList from "../../../../../components/molecules/postList/PostList";
 import Pagination from "../../../../../components/molecules/pagination/Pagination";
 
+export const dynamic = "force-static";
+export const revalidate = 60;
+
 interface CategoryPageProps {
   params: {
     category: string;

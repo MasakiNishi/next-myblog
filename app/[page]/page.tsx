@@ -13,6 +13,9 @@ import PageFeatureImage from "../../components/atoms/common/image/FeatureImage";
 import Content from "../../components/atoms/common/text/Content";
 import TwitterWidgets from "../../components/atoms/common/js/TwitterWidgets";
 
+export const dynamic = "force-static";
+export const revalidate = 60;
+
 interface PageProps {
   params: {
     page: string;

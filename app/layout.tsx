@@ -10,9 +10,6 @@ import { Inter } from "next/font/google";
 import GoogleAnalytics from "../components/atoms/common/js/GoogleAnalytics";
 import { Suspense } from "react";
 
-export const dynamic = "force-static";
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   metadataBase: new URL(SeoConst.domain),
   title: {
