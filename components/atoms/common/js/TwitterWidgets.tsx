@@ -26,7 +26,7 @@ const TwitterWidgets = () => {
   return (
     <Script
       src="https://platform.twitter.com/widgets.js"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
     />
   );
 };
