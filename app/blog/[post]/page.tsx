@@ -168,30 +168,30 @@ const PostPage = async ({ params }: PostPageProps) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mb-4 text-sm">
+      <div className="mb-4 text-sm opacity-0 animate-[fadeIn_1s_ease-in-out_forwards]">
         <PostCategory href={`/blog/category/${post.category.slug}`}>
           {post.category.name}
         </PostCategory>
       </div>
-      <div className="mb-5">
-        <PostTitle>{post.title}</PostTitle>
+      <PostTitle>{post.title}</PostTitle>
+      <div className="opacity-0 animate-[fadeIn_1s_ease-in-out_forwards]">
         <PostSubTitle>{post.subTitle}</PostSubTitle>
+        <div className="flex mt-5 mb-7 text-sm">
+          <PostDate dateTime={post.date.split("T")[0]}>
+            投稿日: {post.date.split("T")[0]}
+          </PostDate>
+          <PostDate dateTime={post.date.split("T")[0]}>
+            更新日: {post.modifiedDate.split("T")[0]}
+          </PostDate>
+        </div>
+        {post.featuredImage && (
+          <PostFeatureImage
+            featuredImage={post.featuredImage}
+            className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
+          />
+        )}
+        <Content content={post.content} />
       </div>
-      <div className="flex mb-7 text-sm">
-        <PostDate dateTime={post.date.split("T")[0]}>
-          投稿日: {post.date.split("T")[0]}
-        </PostDate>
-        <PostDate dateTime={post.date.split("T")[0]}>
-          更新日: {post.modifiedDate.split("T")[0]}
-        </PostDate>
-      </div>
-      {post.featuredImage && (
-        <PostFeatureImage
-          featuredImage={post.featuredImage}
-          className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
-        />
-      )}
-      <Content content={post.content} />
       <PostShare slug={postSlug} title={post.title} />
       <div className="text-center mt-8 mb-5">
         <p className="text-lg sm:text-xl lg:text-xl text-gray-600 mt-8 mb-5">

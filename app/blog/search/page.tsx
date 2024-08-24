@@ -202,7 +202,10 @@ const Search = async ({ searchParams }: SearchPageProps) => {
       ) : (
         <>
           {postList.map((post) => (
-            <div key={post.id}>
+            <div
+              className="opacity-0 animate-[fadeIn_1s_ease-in-out_forwards]"
+              key={post.id}
+            >
               <PostList post={post} />
             </div>
           ))}

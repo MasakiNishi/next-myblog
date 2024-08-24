@@ -166,13 +166,15 @@ const Page = async ({ params }: PageProps) => {
       <div className="mt-4 sm:mt-0 mb-7">
         <PageTitle>{page.title}</PageTitle>
       </div>
-      {page.featuredImage && (
-        <PageFeatureImage
-          featuredImage={page.featuredImage}
-          className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
-        />
-      )}
-      <Content content={page.content} />
+      <div className="opacity-0 animate-[fadeIn_1s_ease-in-out_forwards]">
+        {page.featuredImage && (
+          <PageFeatureImage
+            featuredImage={page.featuredImage}
+            className="mb-7 -mx-4 sm:-mx-14 flex justify-center"
+          />
+        )}
+        <Content content={page.content} />
+      </div>
     </article>
   );
 };

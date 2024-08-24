@@ -184,7 +184,10 @@ const Blog = async ({ params }: ListPageProps) => {
       </h1>
       {postList!.map((post) => {
         return (
-          <div key={post.id}>
+          <div
+            className="opacity-0 animate-[fadeIn_1s_ease-in-out_forwards]"
+            key={post.id}
+          >
             <PostList post={post} />
           </div>
         );
