@@ -19,7 +19,7 @@ const Header = ({
 }) => {
   return (
     <header
-      className={`z-20 w-[75%] max-w-[320px] px-10 pt-7 pb-0 h-full fixed left-0 top-0 bottom-0 bg-white flex-col justify-between after:content-[''] after:absolute after:top-[20px] after:right-0 after:bottom-[20px] after:w-[1px] after:bg-customGray ${className}`}
+      className={`z-20 w-[75%] max-w-[320px] px-10 pt-7 pb-0 h-full fixed left-0 top-0 bottom-0 flex-col justify-between bg-white after:content-[''] after:absolute after:top-[20px] after:right-0 after:bottom-[20px] after:w-[1px] after:bg-customGray ${className}`}
     >
       <div>
         <HeaderTitle

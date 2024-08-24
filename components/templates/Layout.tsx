@@ -48,7 +48,10 @@ const Layout = async ({ children }: { children: ReactNode }) => {
         avatarSrc={profileImage}
         className="fixed lg:hidden"
       />
-      <main id="top" className="flex-grow lg:ml-[320px] scroll-mt-[60px]">
+      <main
+        id="top"
+        className="flex-grow lg:ml-[320px] scroll-mt-[60px] bg-white"
+      >
         {children}
       </main>
       <Footer className="lg:ml-[320px]" />
