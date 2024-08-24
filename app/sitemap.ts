@@ -17,23 +17,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const pageUrls = pageSlugList
     .filter(({ slug }) => slug !== "home")
-    .map(({ slug, modifiedDate }) => ({
-      url: `${domain}/${slug}`,
-      lastModified: modifiedDate.toString(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    }));
+    .map(({ slug, modifiedDate }) => {
+      const dateObj = new Date(modifiedDate);
+      return {
+        url: `${domain}/${slug}`,
+        lastModified: dateObj.toISOString(),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      };
+    });
 
   // 記事ページのURLを生成
   const [postSlugList, postTotal] = await SitemapService.getPostSlugList({
     page: 1,
   });
-  const blogPostUrls = postSlugList.map(({ slug, modifiedDate }) => ({
-    url: `${blogSlug}/${slug}`,
-    lastModified: modifiedDate.toString(),
-    changeFrequency: "daily" as const,
-    priority: 0.8,
-  }));
+  const blogPostUrls = postSlugList.map(({ slug, modifiedDate }) => {
+    const dateObj = new Date(modifiedDate);
+    return {
+      url: `${blogSlug}/${slug}`,
+      lastModified: dateObj.toISOString(),
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    };
+  });
 
   // 記事一覧のページネーションリンクを生成
   const totalPostPages = Math.ceil(postTotal / PostConst.sizePerPage);
