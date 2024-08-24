@@ -56,11 +56,6 @@ export const metadata: Metadata = {
     site: SeoConst.twitterId,
     images: [SeoConst.defaultOgp],
   },
-  //   alternates: {
-  //     types: {
-  //       "application/rss+xml": "https://nextjs.org/rss",
-  //     },
-  //   },
   robots: {
     index: false,
     follow: false,
