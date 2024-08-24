@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const repository = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
+  baseURL: process.env.API_ENDPOINT,
   headers: {
     "Content-Type": "application/json",
   },
