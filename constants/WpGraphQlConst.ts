@@ -1,3 +1,24 @@
+export class WpGraphQlAuthConst {
+  // ユーザーログイン用のJWTトークン取得クエリ
+  static loginUser = `
+    mutation LoginUser {
+      login(input: {username: "${process.env.API_USERNAME}", password: "${process.env.API_PASSWORD}"}) {
+        authToken
+        refreshToken
+      }
+    }
+  `;
+
+  // JWTリフレッシュ用のクエリを返す関数
+  static refreshTokenQuery = (refreshToken: string) => `
+    mutation RefreshAuthToken {
+      refreshJwtAuthToken(input: {jwtRefreshToken: "${refreshToken}"}) {
+        authToken
+      }
+    }
+  `;
+}
+
 export class WpGraphQlPostConst {
   private static _postListItem = `
     categories {

@@ -7,7 +7,7 @@ import Repository from "./Repository";
 
 class SitemapRepository {
   // 記事のスラッグ一覧取得
-  static getAllPostSlug({
+  static async getAllPostSlug({
     offsetPagination,
     categoryId,
   }: {
@@ -15,18 +15,22 @@ class SitemapRepository {
     categoryId?: number;
   }) {
     if (categoryId) {
-      return Repository(WpGraphQlSitemapConst.allPostSlugByCategory, {
-        variables: { offsetPagination, categoryId },
-      }).getWp();
+      return (
+        await Repository(WpGraphQlSitemapConst.allPostSlugByCategory, {
+          variables: { offsetPagination, categoryId },
+        })
+      ).getWp();
     }
-    return Repository(WpGraphQlSitemapConst.allPostSlug, {
-      variables: { offsetPagination },
-    }).getWp();
+    return (
+      await Repository(WpGraphQlSitemapConst.allPostSlug, {
+        variables: { offsetPagination },
+      })
+    ).getWp();
   }
 
   // 固定ページのスラッグ一覧取得
-  static getAllPageSlug() {
-    return Repository(WpGraphQlSitemapConst.allPageSlug).getWp();
+  static async getAllPageSlug() {
+    return (await Repository(WpGraphQlSitemapConst.allPageSlug)).getWp();
   }
 }
 

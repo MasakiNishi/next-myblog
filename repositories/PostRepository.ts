@@ -7,7 +7,7 @@ import { WpGraphQlPostConst } from "../constants/WpGraphQlConst";
 
 class PostRepository {
   // 記事一覧
-  static getList({
+  static async getList({
     offsetPagination,
     categoryId,
     search,
@@ -17,36 +17,46 @@ class PostRepository {
     search?: string;
   }) {
     if (categoryId) {
-      return Repository(WpGraphQlPostConst.postListByCategory, {
-        variables: { offsetPagination, categoryId },
-      }).getWp();
+      return (
+        await Repository(WpGraphQlPostConst.postListByCategory, {
+          variables: { offsetPagination, categoryId },
+        })
+      ).getWp();
     } else if (search) {
-      return Repository(WpGraphQlPostConst.searchPostList, {
-        variables: { offsetPagination, search },
-      }).getWp();
+      return (
+        await Repository(WpGraphQlPostConst.searchPostList, {
+          variables: { offsetPagination, search },
+        })
+      ).getWp();
     }
-    return Repository(WpGraphQlPostConst.postList, {
-      variables: { offsetPagination },
-    }).getWp();
+    return (
+      await Repository(WpGraphQlPostConst.postList, {
+        variables: { offsetPagination },
+      })
+    ).getWp();
   }
 
   // slugから記事単体を取得
-  static getOne({ id }: { id: string }) {
-    return Repository(WpGraphQlPostConst.onePost, {
-      variables: { id },
-    }).getWp();
+  static async getOne({ id }: { id: string }) {
+    return (
+      await Repository(WpGraphQlPostConst.onePost, {
+        variables: { id },
+      })
+    ).getWp();
   }
 
   // スラッグからカテゴリーIDを取得する
-  static getCategoryIdBySlug({ slug }: { slug: string }) {
-    return Repository(WpGraphQlPostConst.categoryIdBySlug, {
-      variables: { id: slug },
-    }).getWp();
+  static async getCategoryIdBySlug({ slug }: { slug: string }) {
+    return (
+      await Repository(WpGraphQlPostConst.categoryIdBySlug, {
+        variables: { id: slug },
+      })
+    ).getWp();
   }
 
   // カテゴリー一覧を取得
-  static getCategoryList() {
-    return Repository(WpGraphQlPostConst.categoryList).getWp();
+  static async getCategoryList() {
+    return (await Repository(WpGraphQlPostConst.categoryList)).getWp();
   }
 }
 

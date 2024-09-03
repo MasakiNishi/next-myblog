@@ -5,10 +5,12 @@ import { WpGraphQlProfileConst } from "../constants/WpGraphQlConst";
 
 class ProfileRepository {
   // ユーザープロフィールを取得
-  static getUser({ id }: { id: string }) {
-    return Repository(WpGraphQlProfileConst.userProfile, {
-      variables: { id },
-    }).getWp();
+  static async getUser({ id }: { id: string }) {
+    return (
+      await Repository(WpGraphQlProfileConst.userProfile, {
+        variables: { id },
+      })
+    ).getWp();
   }
 }
 
