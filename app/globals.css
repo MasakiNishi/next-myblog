@@ -47,18 +47,24 @@
 
     & .box {
       @apply p-4 mb-6 border-double border-[3px] border-customGray sm:p-6;
+    }
 
-      & p {
-        @apply mb-6;
-        &:last-child {
-          @apply mb-0;
-        }
-      }
+    & .box p {
+      @apply mb-6;
+    }
 
-      & ul,
-      & ol {
-        @apply my-0;
-      }
+    & .box p:last-child {
+      @apply mb-0;
+    }
+
+    & .box ul,
+    & .box ol {
+      @apply mb-6;
+    }
+
+    & .box ul:last-child,
+    & .box ol:last-child {
+      @apply mb-0;
     }
 
     & h2,
