@@ -62,11 +62,6 @@
       @apply mb-6;
     }
 
-    & .box ul:last-child,
-    & .box ol:last-child {
-      @apply mb-0;
-    }
-
     & h2,
     & h3,
     & h4 {
