@@ -3,7 +3,7 @@ class SeoConst {
   static defaultOgp = {
     url: "https://img.masakinishi.com/20240808030919/profile.jpg",
     width: 1200,
-    height: 600,
+    height: 630,
   };
   static myName = "Masaki Nishi";
   static defaultTitle = "Masaki Nishi";

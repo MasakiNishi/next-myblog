@@ -53,8 +53,11 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     openGraph: {
+      type: "website",
+      locale: "ja_JP",
       title: title,
       description: post.description,
+      siteName: SeoConst.defaultTitle,
       url: url,
       images: [
         {
@@ -67,8 +70,11 @@ export async function generateMetadata({
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title: title,
       description: post.description,
+      creator: SeoConst.twitterId,
+      site: SeoConst.twitterId,
       images: [image],
     },
     alternates: {

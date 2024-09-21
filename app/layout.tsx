@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description: SeoConst.defaultDescription,
     creator: SeoConst.twitterId,
     site: SeoConst.twitterId,
-    images: [SeoConst.defaultOgp],
+    images: [SeoConst.defaultOgp.url],
   },
   robots: {
     index: false,
