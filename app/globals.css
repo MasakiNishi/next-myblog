@@ -138,7 +138,7 @@
 
     & table {
       @apply w-full h-auto text-center my-6 border-collapse overflow-x-auto block;
-      white-space: nowrap;
+      white-space: normal;
     }
 
     & table thead {
@@ -147,7 +147,16 @@
 
     & table th,
     & table td {
-      @apply border border-customGray;
+      @apply border border-customGray min-w-[150px];
+    }
+
+    & table ul,
+    & table ol {
+      @apply m-1 ml-5 p-1;
+    }
+
+    & table li {
+      @apply text-left;
     }
 
     @apply sm:text-lg lg:text-xl;
