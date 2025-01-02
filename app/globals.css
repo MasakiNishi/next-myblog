@@ -147,7 +147,7 @@
 
     & table th,
     & table td {
-      @apply border border-customGray min-w-[150px];
+      @apply border border-customGray min-w-[100px];
     }
 
     & table ul,
