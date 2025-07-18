@@ -30,7 +30,7 @@ const FollowSocialIcons = () => {
       >
         <YouTubeIcon className="text-3xl" />
       </a>
-      <a
+      {/* <a
         href={instagram.href}
         target="_blank"
         rel="noopener noreferrer"
@@ -38,7 +38,7 @@ const FollowSocialIcons = () => {
         className="w-[25px] h-[25px] !mx-2 mt-[8px] flex items-center justify-center rounded-md bg-gradient-to-r from-instagramGradientStart via-instagramGradientMiddle1 via-instagramGradientMiddle2 via-instagramGradientMiddle3 to-instagramGradientEnd text-white hover:text-white"
       >
         <InstagramIcon className="text-[23px]" />
-      </a>
+      </a> */}
     </div>
   );
 };
