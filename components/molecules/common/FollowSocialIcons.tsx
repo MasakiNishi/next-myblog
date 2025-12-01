@@ -21,7 +21,7 @@ const FollowSocialIcons = () => {
       >
         <XIcon />
       </a>
-      <a
+      {/* <a
         href={youtube.href}
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const FollowSocialIcons = () => {
         className="p-2 !mx-3 text-youtubeColor hover:text-youtubeColor"
       >
         <YouTubeIcon className="text-3xl" />
-      </a>
+      </a> */}
       {/* <a
         href={instagram.href}
         target="_blank"
